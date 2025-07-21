@@ -1,52 +1,75 @@
-# Astro Starter Kit: Basics
+# ⚡️astro-bento-portfolio
 
-```sh
-npm create astro@latest -- --template basics
+## A personal portfolio website made using `Astro`.
+
+![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
+
+To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
+
+or my portfolio **[click here](https://gianmarcocavallo.com)**
+
+## Features
+
+- Modern and Minimal bento-like, sleek UI Design
+- All in one page (almost)
+- Fully Responsive
+- Performances and SEO optimizations
+- Ready to be deployed on [Netlify](https://www.netlify.com/)
+- Blog
+- RSS support (your-domain/rss.xml)
+- Cool 3d globe
+
+## Tech Stack
+
+- [Astro](https://astro.build)
+- [unocss](https://unocss.dev/)
+- [motion](https://motion.dev/)
+- [d3](https://d3js.org/)
+
+# Steps ▶️
+
+```bash
+# Clone this repository
+$ git clone https://github.com/Ladvace/astro-bento-portfolio
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+# Go into the repository
+$ cd astro-bento-portfolio
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+```bash
+# Install dependencies
+$ pnpm install
+or
+$ npm install
+```
 
-## 🧞 Commands
+```bash
+# Start the project in development
+$ pnpm run dev
+or
+$ npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+# Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
 
-## 👀 Want to learn more?
+# Configuration
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+remember to replace the `site` and other properties with your data in `astro.config.mjs`
+
+# Deploy on Netlify 🚀
+
+Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
+
+You just need to fork this repo and linking it to your Netlify account.
+
+or
+
+[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)
+
+## Authors ❤️
+
+- Gianmarco - https://github.com/Ladvace
