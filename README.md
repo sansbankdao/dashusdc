@@ -1,75 +1,145 @@
-# ⚡️astro-bento-portfolio
+# Payflo.dev - Astro 5.7 Implementation
 
-## A personal portfolio website made using `Astro`.
-
-![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
-
-To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
-
-or my portfolio **[click here](https://gianmarcocavallo.com)**
+This is a modern reimplementation of the [salsa.dev](https://www.salsa.dev/) website using Astro 5.7, following the latest best practices.
 
 ## Features
 
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-- Performances and SEO optimizations
-- Ready to be deployed on [Netlify](https://www.netlify.com/)
-- Blog
-- RSS support (your-domain/rss.xml)
-- Cool 3d globe
+- Built with Astro 5.7
+- Responsive design using Tailwind CSS
+- Smooth & subtle micro-interactions
+- Optimized images with Astro's built-in image optimization
+- Modern SEO practices
+- Accessibility-friendly components
+- Fast page transitions with View Transitions API
 
-## Tech Stack
+[<img width="609" height="500" alt="home-page" src="https://github.com/user-attachments/assets/1e311553-3314-4c40-96f6-50daa5cf36f0" />](https://payflo.corytrimm.com)
 
-- [Astro](https://astro.build)
-- [unocss](https://unocss.dev/)
-- [motion](https://motion.dev/)
-- [d3](https://d3js.org/)
+## Project Structure
 
-# Steps ▶️
-
-```bash
-# Clone this repository
-$ git clone https://github.com/Ladvace/astro-bento-portfolio
+```
+/
+├── public/               # Static assets like images and favicons
+├── src/
+│   ├── assets/           # Images processed by Astro
+│   ├── components/       # Reusable UI components
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Page components and routes
+│   ├── scripts/          # Client-side JavaScript
+│   └── styles/           # Global CSS and utility styles
+├── .gitignore
+├── astro.config.mjs      # Astro configuration
+├── package.json          # Project dependencies
+├── tailwind.config.mjs   # Tailwind CSS configuration
+└── tsconfig.json         # TypeScript configuration
 ```
 
-```bash
-# Go into the repository
-$ cd astro-bento-portfolio
-```
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18.14.1 or higher)
+- npm or yarn or pnpm
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-# Install dependencies
-$ pnpm install
-or
-$ npm install
+git clone https://github.com/ctrimm/astro-payroll-solution-theme.git
+cd astro-payroll-solution-theme
 ```
+
+2. Install dependencies:
 
 ```bash
-# Start the project in development
-$ pnpm run dev
-or
-$ npm run dev
+npm install
+# or
+yarn install
+# or
+pnpm install
 ```
 
-# Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
+3. Run the development server:
 
-## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-# Configuration
+4. Open your browser and navigate to `http://localhost:4321`
 
-remember to replace the `site` and other properties with your data in `astro.config.mjs`
+## Building for Production
 
-# Deploy on Netlify 🚀
+To build the site for production, run:
 
-Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
 
-You just need to fork this repo and linking it to your Netlify account.
+The build output will be in the `dist/` directory.
 
-or
+To preview the production build locally:
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)
+```bash
+npm run preview
+# or
+yarn preview
+# or
+pnpm preview
+```
 
-## Authors ❤️
+## Customization
 
-- Gianmarco - https://github.com/Ladvace
+### Styling
+
+The project uses Tailwind CSS for styling. You can customize the styles by modifying:
+
+- `tailwind.config.mjs` - For theme configuration
+- `src/styles/global.css` - For global styles and custom utility classes
+
+### Content
+
+Update the content of the site by modifying the components in the `src/components/` directory and the pages in the `src/pages/` directory.
+
+### Images
+
+- Place static images that don't need processing in the `public/` directory
+- Place images that need optimization in the `src/assets/` directory
+
+## Adding New Pages
+
+To add a new page, create a new `.astro` file in the `src/pages/` directory. The file path will determine the route.
+
+For example:
+- `src/pages/blog.astro` will be accessible at `/blog`
+- `src/pages/blog/[slug].astro` will create dynamic routes for blog posts
+
+## Animations
+
+The site uses a combination of:
+
+1. CSS animations defined in `src/styles/global.css`
+2. Intersection Observer for triggering animations on scroll, implemented in `src/scripts/animations.js`
+
+## Deployment
+
+This Astro site can be deployed to any static hosting service like:
+
+- Netlify
+- Vercel
+- GitHub Pages
+- Cloudflare Pages
+- AWS S3 + CloudFront
+
+Follow the respective platform's documentation for deployment instructions.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

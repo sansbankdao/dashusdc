@@ -1,37 +1,58 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify";
-import robotsTxt from "astro-robots-txt";
-import UnoCSS from "@unocss/astro";
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 import icon from "astro-icon";
-
-import solidJs from "@astrojs/solid-js";
-import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
-
-import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gianmarcocavallo.com/",
+  site: 'https://payflo.dev',
+  output: 'static',
+  prefetch: true,
   integrations: [
+    tailwind(),
     sitemap(),
-    robotsTxt({
-      sitemap: [
-        "https://gianmarcocavallo.com/sitemap-index.xml",
-        "https://gianmarcocavallo.com/sitemap-0.xml",
-      ],
+    icon({
+      include: {
+        ph: [
+          "star-duotone",
+          "lightning-duotone",
+          "globe-duotone",
+          "users-duotone",
+          "buildings-duotone",
+          "briefcase-duotone",
+          "check-circle-duotone",
+          "x-circle-duotone",
+          "code-duotone",
+          "puzzle-piece-duotone",
+          "brain-duotone",
+          "shield-check-duotone",
+          "linkedin-logo-duotone",
+          "twitter-logo-duotone",
+          "github-logo-duotone",
+          "currency-dollar-duotone",
+          "arrow-left-duotone",
+          "arrow-right",
+          "file-search",
+          "layout-duotone",
+          "calendar-duotone",
+          "clock-duotone",
+          "link-duotone",
+          "check-square-duotone",
+          "credit-card-duotone",
+          "paint-brush-duotone",
+          "chart-line-duotone",
+          "google-logo-duotone",
+          "lock-key-duotone",
+          "certificate-duotone",
+          "lifebuoy-duotone",
+          "handshake-duotone"
+        ]
+      }
     }),
-    solidJs(),
-    UnoCSS({ injectReset: true }),
-    icon(),
-    svelte(),
   ],
-  markdown: {
-    remarkPlugins: [remarkReadingTime],
-  },
-  output: "server",
-  adapter: netlify({ edgeMiddleware: true }),
-  vite: {
-    assetsInclude: "**/*.riv",
-  },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
+  }
 });
