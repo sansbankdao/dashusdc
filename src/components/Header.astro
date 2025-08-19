@@ -14,7 +14,7 @@ const navItems = [
 <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100" role="banner">
     <div class="container-custom flex items-center justify-between h-20">
         <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded" aria-label="Dash USD home">
-            <Image src={logoSrc} alt="Dash USD Logo" width={120} height={40} class="transition-all duration-300 hover:brightness-110 focus:brightness-110" />
+            <Image src={logoSrc} alt="Dash USD Logo" width={48} height={48} class="transition-all duration-300 hover:brightness-110 focus:brightness-110" />
         </a>
 
         <!-- Desktop Nav -->
@@ -31,10 +31,13 @@ const navItems = [
 
         <div class="flex items-center space-x-4">
             <a href="/login" class="hidden md:inline-block text-payflo-dark hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded px-2 py-1">
-                Log In
+                $1.00 DUSD | 0.0465 DASH
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-payflo-purple transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/book-demo" class="btn btn-primary focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2">Book a Demo</a>
+
+            <a href="/book-demo" class="btn btn-primary focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2">
+                Swap DASH ⇒ DUSD
+            </a>
 
             <!-- Mobile Menu Button -->
             <button
