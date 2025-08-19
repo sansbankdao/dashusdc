@@ -39,9 +39,9 @@ const features = [
 ];
 ---
 
-<Layout 
-  title="Payflo - Product" 
-  description="Payflo's payroll API is easy to use and fast to launch, with compliant infrastructure and features customers will love."
+<Layout
+  title="Dash USD - Product"
+  description="Dash USD's payroll API is easy to use and fast to launch, with compliant infrastructure and features customers will love."
 >
   <section class="pt-20 pb-16 md:pt-28 md:pb-24">
     <div class="container-custom">
@@ -51,21 +51,21 @@ const features = [
             A <span class="gradient-text">Modern Approach</span> to Payroll Infrastructure
           </h1>
           <p class="mt-6 text-xl text-gray-600 max-w-lg">
-            Payflo's payroll API is easy to use and fast to launch, with compliant infrastructure and features customers will love.
+            Dash USD's payroll API is easy to use and fast to launch, with compliant infrastructure and features customers will love.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
             <a href="/book-demo" class="btn btn-primary">Book a Demo</a>
             <a href="/documentation" class="btn btn-secondary">View API Docs</a>
           </div>
         </div>
-        
+
         <div class="animate-on-scroll" style="animation-delay: 0.2s;">
           <div class="relative">
             <div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30"></div>
             <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
-              <Image 
-                src={productImage} 
-                alt="Payflo Product Dashboard" 
+              <Image
+                src={productImage}
+                alt="Dash USD Product Dashboard"
                 class="w-full h-auto"
                 width={700}
                 height={500}
@@ -76,7 +76,7 @@ const features = [
       </div>
     </div>
   </section>
-  
+
   <section class="py-20 bg-payflo-gray">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto animate-on-scroll">
@@ -87,11 +87,11 @@ const features = [
           Everything you need to offer a complete payroll solution to your customers.
         </p>
       </div>
-      
+
       <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
-          <div 
-            class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll" 
+          <div
+            class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll"
             style={`animation-delay: ${index * 0.1}s`}
           >
             <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-payflo-purple to-payflo-blue flex items-center justify-center text-white mb-6">
@@ -104,6 +104,6 @@ const features = [
       </div>
     </div>
   </section>
-  
+
   <CTASection />
 </Layout>

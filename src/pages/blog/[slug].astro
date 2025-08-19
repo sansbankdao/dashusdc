@@ -18,7 +18,7 @@ function extractHeadings(content: string): Heading[] {
   const headings: Heading[] = [];
   const regex = /<h2>(.*?)<\/h2>/g;
   let match: RegExpExecArray | null;
-  
+
   while ((match = regex.exec(content)) !== null) {
     headings.push({
       title: match[1],
@@ -30,7 +30,7 @@ function extractHeadings(content: string): Heading[] {
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
-  
+
   return blogPosts.map((post) => {
     const relatedPosts = blogPosts
       .filter(p => p.id !== post.id)
@@ -66,7 +66,7 @@ const processedContent = content.replace(
 const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<Layout title={`${title} - Payflo Blog`} description={excerpt}>
+<Layout title={`${title} - Dash USD Blog`} description={excerpt}>
   <!-- Reading Progress Bar -->
   <div class="fixed top-0 left-0 w-full h-1 z-50">
     <div id="reading-progress" class="h-full bg-gradient-to-r from-payflo-purple to-payflo-blue w-0 transition-all duration-100" role="progressbar" aria-label="Reading progress"></div>
@@ -85,18 +85,18 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
             </span>
           ))}
         </div>
-        
+
         <!-- Title -->
         <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 animate-on-scroll delay-1">
           {title}
         </h1>
-        
+
         <!-- Author & Meta -->
         <div class="flex flex-wrap items-center gap-6 mb-12 animate-on-scroll delay-2">
           <div class="flex items-center">
-            <img 
-              src={authorAvatar} 
-              alt={`${author}, ${authorRole}`} 
+            <img
+              src={authorAvatar}
+              alt={`${author}, ${authorRole}`}
               class="w-12 h-12 rounded-full mr-4 border-2 border-white shadow-md"
             />
             <div>
@@ -104,23 +104,23 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
               <p class="text-sm text-gray-600">{authorRole}</p>
             </div>
           </div>
-          
+
           <div class="flex items-center text-gray-600 text-sm">
             <Icon name="ph:calendar-duotone" class="h-5 w-5 mr-2" aria-hidden="true" />
             <time datetime={date}>{date}</time>
           </div>
-          
+
           <div class="flex items-center text-gray-600 text-sm">
             <Icon name="ph:clock-duotone" class="h-5 w-5 mr-2" aria-hidden="true" />
             <span>{readingTime} min read</span>
           </div>
         </div>
-        
+
         <!-- Featured Image -->
         <div class="rounded-2xl overflow-hidden shadow-2xl animate-on-scroll delay-3">
-          <img 
-            src={image} 
-            alt={`Featured image for ${title}`} 
+          <img
+            src={image}
+            alt={`Featured image for ${title}`}
             class="w-full h-auto"
           />
         </div>
@@ -138,7 +138,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
             <ul class="space-y-3" role="list">
               {headings.map((heading: Heading) => (
                 <li>
-                  <a 
+                  <a
                     href={`#${heading.id}`}
                     class="block text-gray-600 hover:text-payflo-purple focus:text-payflo-purple transition-colors duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded"
                   >
@@ -153,7 +153,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
           <div class="hidden lg:block mt-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <h3 class="font-semibold text-lg mb-4">Share Article</h3>
             <div class="flex flex-col space-y-4">
-              <a 
+              <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -163,7 +163,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
                 <Icon name="ph:twitter-logo-duotone" class="h-5 w-5 mr-3" aria-hidden="true" />
                 <span class="text-sm">Share on Twitter</span>
               </a>
-              <a 
+              <a
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -190,12 +190,12 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
           <article class="prose prose-lg max-w-none">
             <Fragment set:html={processedContent} />
           </article>
-          
+
           <!-- Mobile Share Bar -->
           <div class="mt-12 pt-8 border-t border-gray-200 lg:hidden">
             <h3 class="text-lg font-semibold mb-4">Share Article</h3>
             <div class="flex space-x-4" role="group" aria-label="Share article">
-              <a 
+              <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -204,7 +204,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
               >
                 <Icon name="ph:twitter-logo-duotone" class="h-6 w-6" aria-hidden="true" />
               </a>
-              <a 
+              <a
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -222,20 +222,20 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
               </button>
             </div>
           </div>
-          
+
           <!-- Related Posts -->
           <section class="mt-16 pt-8 border-t border-gray-200">
             <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8" role="list">
               {relatedPosts.map((post: any) => (
                 <article role="listitem">
-                  <a 
+                  <a
                     href={`/blog/${post.slug}`}
                     class="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg focus:shadow-lg transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2"
                   >
                     <div class="aspect-video overflow-hidden">
-                      <img 
-                        src={post.image} 
+                      <img
+                        src={post.image}
                         alt={`Featured image for ${post.title}`}
                         class="w-full h-full object-cover transform group-hover:scale-105 group-focus:scale-105 transition-transform duration-300"
                       />
@@ -259,10 +259,10 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
               ))}
             </div>
           </section>
-          
+
           <div class="mt-16 pt-8 border-t border-gray-200">
-            <a 
-              href="/blog" 
+            <a
+              href="/blog"
               class="flex items-center text-payflo-purple font-medium group focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded"
             >
               <Icon name="ph:arrow-left-duotone" class="h-5 w-5 mr-2 group-hover:-translate-x-1 group-focus:-translate-x-1 transition-transform duration-200" aria-hidden="true" />
@@ -280,7 +280,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
   document.addEventListener('astro:page-load', () => {
     const progressBar = document.getElementById('reading-progress');
     const article = document.querySelector('article');
-    
+
     if (progressBar && article) {
       const updateProgress = () => {
         const scrolled = window.scrollY;
@@ -307,11 +307,11 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
             const spanElement = button.querySelector('span');
             const icon = button.querySelector('svg');
             const originalText = spanElement?.textContent || 'Copy Link';
-            
+
             if (icon) {
               icon.style.color = '#7928CA';
             }
-            
+
             if (spanElement) {
               spanElement.textContent = 'Copied!';
               // Announce to screen readers
@@ -321,7 +321,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
               announcement.className = 'sr-only';
               announcement.textContent = 'Link copied to clipboard';
               document.body.appendChild(announcement);
-              
+
               setTimeout(() => {
                 spanElement.textContent = originalText;
                 if (icon) {
@@ -345,7 +345,7 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
   }
-  
+
   /* Style the table of contents */
   .prose h2 {
     scroll-margin-top: 2rem;

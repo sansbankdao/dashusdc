@@ -82,37 +82,37 @@ const timeline = [
   },
   {
     year: "2021",
-    title: "Payflo Launch",
-    description: "First version of Payflo's API launches, allowing platforms to embed payroll capabilities."
+    title: "Dash USD Launch",
+    description: "First version of Dash USD's API launches, allowing platforms to embed payroll capabilities."
   },
   {
     year: "2023",
     title: "Rapid Growth",
-    description: "Payflo expands to serve platforms across multiple industries and countries."
+    description: "Dash USD expands to serve platforms across multiple industries and countries."
   }
 ];
 ---
 
-<Layout 
-  title="Payflo - About Us" 
-  description="Read about Payflo's mission, values, team, and the story of how we came to build the most modern payroll infrastructure on the market."
+<Layout
+  title="Dash USD - About Us"
+  description="Read about Dash USD's mission, values, team, and the story of how we came to build the most modern payroll infrastructure on the market."
 >
   <section class="pt-20 pb-16 md:pt-28 md:pb-24">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto animate-on-scroll">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-          About <span class="gradient-text">Payflo</span>
+          About <span class="gradient-text">Dash USD</span>
         </h1>
         <p class="mt-6 text-xl text-gray-600">
           We empower developers to reimagine payroll by building modern infrastructure designed for modern work.
         </p>
       </div>
-      
+
       <div class="mt-16 animate-on-scroll">
         <div class="relative rounded-xl overflow-hidden">
-          <Image 
-            src={teamImage} 
-            alt="Payflo Team" 
+          <Image
+            src={teamImage}
+            alt="Dash USD Team"
             class="w-full h-auto"
             width={1200}
             height={600}
@@ -121,7 +121,7 @@ const timeline = [
       </div>
     </div>
   </section>
-  
+
   <section class="py-20 bg-payflo-gray">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto animate-on-scroll">
@@ -132,11 +132,11 @@ const timeline = [
           The principles that guide everything we do.
         </p>
       </div>
-      
+
       <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         {values.map((value, index) => (
-          <div 
-            class="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" 
+          <div
+            class="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll"
             style={`animation-delay: ${index * 0.1}s`}
           >
             <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-payflo-purple to-payflo-blue flex items-center justify-center text-white mb-6">
@@ -149,7 +149,7 @@ const timeline = [
       </div>
     </div>
   </section>
-  
+
   <section class="py-20 bg-white">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto animate-on-scroll">
@@ -157,7 +157,7 @@ const timeline = [
           Our Story
         </h2>
       </div>
-      
+
       <div class="mt-12 max-w-4xl mx-auto">
         <div class="relative">
           {timeline.map((event, index) => (
@@ -172,14 +172,14 @@ const timeline = [
         </div>
         <div class="mt-12 text-center">
           <p class="text-xl font-medium text-gray-700">
-            From the team that brought you QuickBooks Payroll, Gusto, and Xero, we're building the 
+            From the team that brought you QuickBooks Payroll, Gusto, and Xero, we're building the
             infrastructure we wish we had when we started out.
           </p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <section class="py-20 bg-payflo-gray">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto animate-on-scroll">
@@ -187,20 +187,20 @@ const timeline = [
           Meet Our Team
         </h2>
         <p class="mt-4 text-xl text-gray-600">
-          The experts behind Payflo's payroll infrastructure.
+          The experts behind Dash USD's payroll infrastructure.
         </p>
       </div>
-      
+
       <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {teamMembers.map((member, index) => (
-          <div 
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center animate-on-scroll" 
+          <div
+            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center animate-on-scroll"
             style={`animation-delay: ${index * 0.1}s`}
           >
             <div class="relative inline-block">
-              <img 
-                src={member.avatar} 
-                alt={member.name} 
+              <img
+                src={member.avatar}
+                alt={member.name}
                 class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-payflo-purple/20"
               />
               <div class="absolute bottom-4 right-0 h-6 w-6 rounded-full bg-green-400 border-2 border-white"></div>
@@ -230,7 +230,7 @@ const timeline = [
       </div>
     </div>
   </section>
-  
+
   <section class="py-20 bg-gradient-to-r from-payflo-purple to-payflo-blue text-white relative overflow-hidden">
     <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
     <div class="container-custom relative">

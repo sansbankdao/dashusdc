@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<Layout 
-  title="Book a Demo - Payflo Payroll Infrastructure"
-  description="Schedule a demo to see how Payflo can help you add payroll capabilities to your platform."
+<Layout
+  title="Book a Demo - Dash USD Payroll Infrastructure"
+  description="Schedule a demo to see how Dash USD can help you add payroll capabilities to your platform."
 >
   <div class="min-h-screen bg-gradient-to-b from-payflo-gray/50 to-white py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto">
@@ -13,7 +13,7 @@ import { Icon } from 'astro-icon/components';
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold mb-4">Book a Demo</h1>
         <p class="text-xl text-gray-600">
-          See how Payflo can help you add payroll capabilities to your platform
+          See how Dash USD can help you add payroll capabilities to your platform
         </p>
       </div>
 
@@ -377,18 +377,18 @@ import { Icon } from 'astro-icon/components';
         const website = (document.getElementById('website') as HTMLInputElement)?.value;
         const companySize = (document.getElementById('company-size') as HTMLSelectElement)?.value;
         const industry = (document.getElementById('industry') as HTMLSelectElement)?.value;
-        
+
         if (!company || !website || !companySize || !industry) {
           const missingFields = [];
           if (!company) missingFields.push('Company Name');
           if (!website) missingFields.push('Company Website');
           if (!companySize) missingFields.push('Company Size');
           if (!industry) missingFields.push('Industry');
-          
+
           alert(`Please fill in the following required fields:\n${missingFields.join('\n')}`);
           return false;
         }
-        
+
         // Validate website URL
         try {
           new URL(website);
@@ -396,53 +396,53 @@ import { Icon } from 'astro-icon/components';
           alert('Please enter a valid website URL (e.g., https://example.com)');
           return false;
         }
-        
+
         return true;
       }
-      
+
       if (step === 2) {
         const firstName = (document.getElementById('first-name') as HTMLInputElement)?.value;
         const lastName = (document.getElementById('last-name') as HTMLInputElement)?.value;
         const email = (document.getElementById('work-email') as HTMLInputElement)?.value;
         const jobTitle = (document.getElementById('job-title') as HTMLInputElement)?.value;
-        
+
         if (!firstName || !lastName || !email || !jobTitle) {
           const missingFields = [];
           if (!firstName) missingFields.push('First Name');
           if (!lastName) missingFields.push('Last Name');
           if (!email) missingFields.push('Work Email');
           if (!jobTitle) missingFields.push('Job Title');
-          
+
           alert(`Please fill in the following required fields:\n${missingFields.join('\n')}`);
           return false;
         }
-        
+
         // Validate email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
           alert('Please enter a valid work email address');
           return false;
         }
-        
+
         return true;
       }
-      
+
       if (step === 3) {
         const selectedDate = document.querySelector('[data-date].border-payflo-purple');
         const timezone = (document.getElementById('timezone') as HTMLSelectElement)?.value;
-        
+
         if (!selectedDate || !timezone) {
           const missingFields = [];
           if (!selectedDate) missingFields.push('Preferred Demo Date');
           if (!timezone) missingFields.push('Timezone');
-          
+
           alert(`Please fill in the following required fields:\n${missingFields.join('\n')}`);
           return false;
         }
-        
+
         return true;
       }
-      
+
       return true;
     }
 

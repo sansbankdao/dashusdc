@@ -1,11 +1,11 @@
 ---
 const faqs = [
   {
-    question: "How long does it take to implement Payflo's payroll solution?",
+    question: "How long does it take to implement Dash USD's payroll solution?",
     answer: "Most customers can integrate and launch within 2-4 weeks, depending on your specific requirements and technical resources."
   },
   {
-    question: "Is Payflo compliant with tax regulations?",
+    question: "Is Dash USD compliant with tax regulations?",
     answer: "Yes, our infrastructure handles all tax compliance, filings, and payments across the U.S. and Canada, ensuring you stay compliant at all times."
   },
   {
@@ -32,7 +32,7 @@ const faqs = [
   <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0 bg-repeat" style="background-image: url('/grid-pattern.svg');"></div>
   </div>
-  
+
   <div class="container-custom relative">
     <div class="text-center max-w-3xl mx-auto animate-on-scroll">
       <h2 class="text-3xl md:text-4xl font-bold">
@@ -42,10 +42,10 @@ const faqs = [
         Everything you need to know about our payroll infrastructure.
       </p>
     </div>
-    
+
     <div class="mt-12 max-w-3xl mx-auto">
       {faqs.map((faq, index) => (
-        <div 
+        <div
           class="mb-6 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden animate-on-scroll faq-item hover:shadow-md transition-all duration-300"
           style={`animation-delay: ${index * 0.1}s`}
         >
@@ -65,13 +65,13 @@ const faqs = [
         </div>
       ))}
     </div>
-    
+
     <div class="mt-12 text-center animate-on-scroll">
       <p class="text-gray-600">
         Still have questions? We're here to help.
       </p>
       <a href="/contact" class="mt-4 inline-flex items-center text-payflo-purple font-medium hover:underline group">
-        Contact Us 
+        Contact Us
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>

@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 
 // Get all blog posts and sort by date (newest first)
 const blogPosts = await getCollection('blog');
-const sortedPosts = blogPosts.sort((a, b) => 
+const sortedPosts = blogPosts.sort((a, b) =>
   new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
@@ -26,14 +26,14 @@ const allTags = Array.from(
 ).sort();
 ---
 
-<Layout title="Blog - Payflo" description="Insights, updates, and thought leadership from the Payflo team on payroll, embedded finance, and the future of work.">
+<Layout title="Blog - Dash USD" description="Insights, updates, and thought leadership from the Dash USD team on payroll, embedded finance, and the future of work.">
   <!-- Hero Section -->
   <section class="relative py-20 md:py-32 bg-gradient-to-b from-payflo-gray/50 to-white overflow-hidden">
     <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" aria-hidden="true"></div>
     <div class="container-custom relative">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 animate-on-scroll">
-          The Payflo <span class="gradient-text">Blog</span>
+          The Dash USD <span class="gradient-text">Blog</span>
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-1">
           Insights, updates, and thought leadership from our team on payroll, embedded finance, and the future of work.
@@ -49,16 +49,16 @@ const allTags = Array.from(
         <div class="mb-12">
           <h2 class="text-2xl font-bold mb-4 animate-on-scroll">Featured Article</h2>
         </div>
-        
+
         <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-on-scroll delay-1">
           <div class="hover-zoom rounded-2xl overflow-hidden shadow-lg">
-            <img 
-              src={featuredPost.data.image} 
+            <img
+              src={featuredPost.data.image}
               alt={`Featured image for ${featuredPost.data.title}`}
               class="w-full h-auto transition-all duration-500"
             />
           </div>
-          
+
           <div>
             <div class="flex flex-wrap gap-2 mb-4">
               {featuredPost.data.tags.map((tag: string) => (
@@ -67,24 +67,24 @@ const allTags = Array.from(
                 </span>
               ))}
             </div>
-            
+
             <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              <a 
+              <a
                 href={`/blog/${featuredPost.id}`}
                 class="hover:text-payflo-purple focus:text-payflo-purple transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-4 rounded"
               >
                 {featuredPost.data.title}
               </a>
             </h3>
-            
+
             <p class="text-lg text-gray-600 mb-6 leading-relaxed">
               {featuredPost.data.excerpt}
             </p>
-            
+
             <div class="flex flex-wrap items-center gap-6 mb-8">
               <div class="flex items-center">
-                <img 
-                  src={featuredPost.data.authorAvatar} 
+                <img
+                  src={featuredPost.data.authorAvatar}
                   alt={`${featuredPost.data.author}, ${featuredPost.data.authorRole}`}
                   class="w-10 h-10 rounded-full mr-3 border-2 border-white shadow-md"
                 />
@@ -93,20 +93,20 @@ const allTags = Array.from(
                   <p class="text-xs text-gray-600">{featuredPost.data.authorRole}</p>
                 </div>
               </div>
-              
+
               <div class="flex items-center text-gray-600 text-sm">
                 <Icon name="ph:calendar-duotone" class="h-4 w-4 mr-2" aria-hidden="true" />
                 <time datetime={featuredPost.data.date}>{featuredPost.data.date}</time>
               </div>
-              
+
               <div class="flex items-center text-gray-600 text-sm">
                 <Icon name="ph:clock-duotone" class="h-4 w-4 mr-2" aria-hidden="true" />
                 <span>{calculateReadingTime(featuredPost.data.content)} min read</span>
               </div>
             </div>
-            
-            <a 
-              href={`/blog/${featuredPost.id}`} 
+
+            <a
+              href={`/blog/${featuredPost.id}`}
               class="btn btn-primary inline-flex items-center group focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2"
               aria-label={`Read full article: ${featuredPost.data.title}`}
             >
@@ -125,7 +125,7 @@ const allTags = Array.from(
       <div class="flex flex-wrap items-center gap-4">
         <span class="text-sm font-medium text-gray-700">Filter by topic:</span>
         <div class="flex flex-wrap gap-2" role="group" aria-label="Filter articles by topic">
-          <button 
+          <button
             class="filter-tag px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200 hover:bg-payflo-purple hover:text-white focus:bg-payflo-purple focus:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2"
             data-tag="all"
             aria-pressed="true"
@@ -133,7 +133,7 @@ const allTags = Array.from(
             All Posts
           </button>
           {allTags.map((tag: string) => (
-            <button 
+            <button
               class="filter-tag px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200 hover:bg-payflo-purple hover:text-white focus:bg-payflo-purple focus:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2"
               data-tag={tag.toLowerCase()}
               aria-pressed="false"
@@ -152,26 +152,26 @@ const allTags = Array.from(
       <div class="mb-12">
         <h2 class="text-2xl font-bold mb-4 animate-on-scroll">Latest Articles</h2>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
         {otherPosts.map((post, index) => (
-          <article 
+          <article
             class={`blog-post-card group animate-on-scroll delay-${Math.min(index + 1, 5)}`}
             data-tags={post.data.tags.map(tag => tag.toLowerCase()).join(',')}
           >
-            <a 
+            <a
               href={`/blog/${post.id}`}
               class="block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg focus:shadow-lg transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2"
             >
               <div class="aspect-video overflow-hidden">
-                <img 
-                  src={post.data.image} 
+                <img
+                  src={post.data.image}
                   alt={`Featured image for ${post.data.title}`}
                   class="w-full h-full object-cover transform group-hover:scale-105 group-focus:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
-              
+
               <div class="p-6">
                 <div class="flex flex-wrap gap-2 mb-3">
                   {post.data.tags.map((tag: string) => (
@@ -180,31 +180,31 @@ const allTags = Array.from(
                     </span>
                   ))}
                 </div>
-                
+
                 <h3 class="font-semibold text-lg mb-3 group-hover:text-payflo-purple group-focus:text-payflo-purple transition-colors duration-200 line-clamp-2">
                   {post.data.title}
                 </h3>
-                
+
                 <p class="text-sm text-gray-600 mb-4 line-clamp-3">
                   {post.data.excerpt}
                 </p>
-                
+
                 <div class="flex flex-wrap items-center gap-4 text-xs text-gray-500">
                   <div class="flex items-center">
-                    <img 
-                      src={post.data.authorAvatar} 
+                    <img
+                      src={post.data.authorAvatar}
                       alt={`${post.data.author}, ${post.data.authorRole}`}
                       class="w-6 h-6 rounded-full mr-2"
                       loading="lazy"
                     />
                     <span>{post.data.author}</span>
                   </div>
-                  
+
                   <div class="flex items-center">
                     <Icon name="ph:calendar-duotone" class="h-3 w-3 mr-1" aria-hidden="true" />
                     <time datetime={post.data.date}>{post.data.date}</time>
                   </div>
-                  
+
                   <div class="flex items-center">
                     <Icon name="ph:clock-duotone" class="h-3 w-3 mr-1" aria-hidden="true" />
                     <span>{calculateReadingTime(post.data.content)} min</span>
@@ -215,7 +215,7 @@ const allTags = Array.from(
           </article>
         ))}
       </div>
-      
+
       <!-- No results message -->
       <div id="no-results" class="hidden text-center py-16">
         <div class="max-w-md mx-auto">
@@ -237,11 +237,11 @@ const allTags = Array.from(
         <p class="text-xl text-white/90 mb-8 animate-on-scroll delay-1">
           Get the latest insights on payroll, embedded finance, and the future of work delivered to your inbox.
         </p>
-        
+
         <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto animate-on-scroll delay-2" role="form" aria-label="Newsletter signup">
           <label for="email" class="sr-only">Email address</label>
-          <input 
-            type="email" 
+          <input
+            type="email"
             id="email"
             name="email"
             placeholder="Enter your email"
@@ -249,14 +249,14 @@ const allTags = Array.from(
             required
             aria-required="true"
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             class="px-6 py-3 bg-white text-payflo-purple font-medium rounded-lg hover:bg-gray-50 focus:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-payflo-purple"
           >
             Subscribe
           </button>
         </form>
-        
+
         <p class="text-sm text-white/70 mt-4 animate-on-scroll delay-3">
           We respect your privacy. Unsubscribe at any time.
         </p>
@@ -271,28 +271,28 @@ const allTags = Array.from(
     const filterTags = document.querySelectorAll('.filter-tag');
     const postCards = document.querySelectorAll('.blog-post-card');
     const noResults = document.getElementById('no-results');
-    
+
     filterTags.forEach(tag => {
       tag.addEventListener('click', () => {
         const selectedTag = tag.getAttribute('data-tag');
-        
+
         // Update active state
         filterTags.forEach(t => {
           t.classList.remove('bg-payflo-purple', 'text-white');
           t.classList.add('bg-white', 'text-gray-700');
           t.setAttribute('aria-pressed', 'false');
         });
-        
+
         tag.classList.remove('bg-white', 'text-gray-700');
         tag.classList.add('bg-payflo-purple', 'text-white');
         tag.setAttribute('aria-pressed', 'true');
-        
+
         // Filter posts
         let visibleCount = 0;
-        
+
         postCards.forEach(card => {
           const cardTags = card.getAttribute('data-tags')?.split(',') || [];
-          
+
           if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
             card.style.display = 'block';
             card.style.animation = 'fadeIn 0.3s ease-in-out';
@@ -301,7 +301,7 @@ const allTags = Array.from(
             card.style.display = 'none';
           }
         });
-        
+
         // Show/hide no results message
         if (noResults) {
           if (visibleCount === 0) {
@@ -310,7 +310,7 @@ const allTags = Array.from(
             noResults.classList.add('hidden');
           }
         }
-        
+
         // Announce to screen readers
         const announcement = document.createElement('div');
         announcement.setAttribute('aria-live', 'polite');
@@ -318,32 +318,32 @@ const allTags = Array.from(
         announcement.className = 'sr-only';
         announcement.textContent = `Showing ${visibleCount} article${visibleCount !== 1 ? 's' : ''} for ${selectedTag === 'all' ? 'all topics' : selectedTag}`;
         document.body.appendChild(announcement);
-        
+
         setTimeout(() => {
           document.body.removeChild(announcement);
         }, 1000);
       });
     });
-    
+
     // Newsletter form handling
     const newsletterForm = document.querySelector('form[role="form"]');
     if (newsletterForm) {
       newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const emailInput = newsletterForm.querySelector('input[type="email"]') as HTMLInputElement;
         const submitButton = newsletterForm.querySelector('button[type="submit"]') as HTMLButtonElement;
-        
+
         if (emailInput && submitButton) {
           const originalText = submitButton.textContent;
           submitButton.textContent = 'Subscribing...';
           submitButton.disabled = true;
-          
+
           // Simulate API call (replace with actual implementation)
           setTimeout(() => {
             submitButton.textContent = 'Subscribed!';
             emailInput.value = '';
-            
+
             // Announce success to screen readers
             const announcement = document.createElement('div');
             announcement.setAttribute('aria-live', 'polite');
@@ -351,7 +351,7 @@ const allTags = Array.from(
             announcement.className = 'sr-only';
             announcement.textContent = 'Successfully subscribed to newsletter';
             document.body.appendChild(announcement);
-            
+
             setTimeout(() => {
               submitButton.textContent = originalText;
               submitButton.disabled = false;
@@ -387,14 +387,14 @@ const allTags = Array.from(
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   /* Fade in animation */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
