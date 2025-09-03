@@ -2,14 +2,15 @@
 import { Image } from 'astro:assets'
 import logoSrc from '../assets/logo.svg'
 
-const companyLinks = [
-    { name: 'About Us', href: '/about' },
-    { name: 'Transparency', href: '/transparency' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Articles', href: '/readme' },
+const platformLinks = [
+    { name: 'About DUSD', href: '/about' },
+    { name: 'Read Our Articles', href: '/readme' },
+    { name: '100% Transparency', href: '/transparency' },
+    { name: 'Get In Touch', href: '/contact' },
 ]
 
 const resourceLinks = [
+    { name: 'For Merchants', href: '/merchants' },
     { name: 'For Builders', href: '/builders' },
     { name: 'API Reference', href: '/api' },
     { name: 'Learning Center', href: '/learn' },
@@ -23,9 +24,9 @@ const legalLinks = [
 ]
 
 const socialLinks = [
-    { name: 'Twitter', href: 'https://twitter.com/payflo_dev', icon: 'twitter' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/company/payflo-dev', icon: 'linkedin' },
-    { name: 'GitHub', href: 'https://github.com/payflo-dev', icon: 'github' },
+    { name: 'Twitter', href: 'https://x.com/SansbankDAO', icon: 'twitter' },
+    // { name: 'LinkedIn', href: 'https://linkedin.com/company/payflo-dev', icon: 'linkedin' },
+    { name: 'GitHub', href: 'https://github.com/sansbankdao', icon: 'github' },
 ]
 ---
 
@@ -42,11 +43,11 @@ const socialLinks = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
             <div class="lg:col-span-2">
                 <a href="/" class="inline-block transition-transform duration-300 hover:scale-105" aria-label="Dash USD home">
-                    <Image src={logoSrc} alt="Dash USD Logo" width={120} height={120} class="brightness-0 invert" />
+                    <Image src={logoSrc} alt="Dash USD Logo" width={120} height={120} class="" />
                 </a>
 
-                <p class="mt-4 text-gray-400 max-w-md">
-                    Dash USD makes it easy for everyday people to use crypto in their daily lives.
+                <p class="mt-4 text-slate-200 text-lg font-light max-w-md tracking-wider">
+                    Dash USD is the effortless solution for everyday people to <span class="font-extrabold">enjoy the benefits</span> of digital currency in their everyday lives.
                 </p>
 
                 <div class="mt-6 flex space-x-4">
@@ -55,7 +56,7 @@ const socialLinks = [
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 transform"
+                            class="text-slate-200 hover:text-white transition-all duration-300 hover:scale-110 transform"
                             aria-label={social.name}
                         >
                             {social.icon === 'twitter' && (
@@ -81,16 +82,16 @@ const socialLinks = [
             </div>
 
             <div>
-                <h3 class="text-lg font-semibold mb-4 text-white/90 hover:text-white transition-colors duration-300">
-                    Company
+                <h3 class="text-2xl font-semibold mb-4 tracking-wider text-white/90 hover:text-white transition-colors duration-300">
+                    Platform
                 </h3>
 
                 <ul class="space-y-3">
-                    {companyLinks.map((link, index) => (
+                    {platformLinks.map((link, index) => (
                         <li class="transform transition-all duration-300 hover:translate-x-1">
                             <a
                                 href={link.href}
-                                class="text-gray-400 hover:text-white transition-colors duration-300 inline-block"
+                                class="text-slate-200 hover:text-white transition-colors duration-300 inline-block"
                                 style={`transition-delay: ${index * 50}ms;`}
                             >
                                 {link.name}
@@ -101,7 +102,7 @@ const socialLinks = [
             </div>
 
             <div>
-                <h3 class="text-lg font-semibold mb-4 text-white/90 hover:text-white transition-colors duration-300">
+                <h3 class="text-2xl font-semibold mb-4 tracking-wider text-white/90 hover:text-white transition-colors duration-300">
                     Resources
                 </h3>
 
@@ -110,7 +111,7 @@ const socialLinks = [
                         <li class="transform transition-all duration-300 hover:translate-x-1">
                             <a
                                 href={link.href}
-                                class="text-gray-400 hover:text-white transition-colors duration-300 inline-block"
+                                class="text-slate-200 hover:text-white transition-colors duration-300 inline-block"
                                 target={link.href.startsWith('http') ? '_blank' : undefined}
                                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                 style={`transition-delay: ${index * 50}ms;`}
@@ -123,7 +124,7 @@ const socialLinks = [
             </div>
 
             <div>
-                <h3 class="text-lg font-semibold mb-4 text-white/90 hover:text-white transition-colors duration-300">
+                <h3 class="text-2xl font-semibold mb-4 tracking-wider text-white/90 hover:text-white transition-colors duration-300">
                     Legal
                 </h3>
 
@@ -132,7 +133,7 @@ const socialLinks = [
                         <li class="transform transition-all duration-300 hover:translate-x-1">
                             <a
                                 href={link.href}
-                                class="text-gray-400 hover:text-white transition-colors duration-300 inline-block"
+                                class="text-slate-200 hover:text-white transition-colors duration-300 inline-block"
                                 style={`transition-delay: ${index * 50}ms;`}
                             >
                                 {link.name}
@@ -143,7 +144,7 @@ const socialLinks = [
             </div>
         </div>
 
-        <div class="pt-8 text-center text-gray-400 text-sm">
+        <div class="pt-8 text-center text-slate-200 text-sm">
             <p class="hover:text-gray-300 transition-colors duration-300">
                 &copy; {new Date().getFullYear()} Sansbank DAO. All rights reserved.
             </p>
