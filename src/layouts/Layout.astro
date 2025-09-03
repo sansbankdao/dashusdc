@@ -12,7 +12,7 @@ interface Props {
 
 const {
     title,
-    description = "Dash USD makes it easy for everyday people to use crypto in their daily lives."
+    description = "Dash USD is the digital currency for everyday people to use in their everyday lives."
 } = Astro.props
 
 // Preload critical assets
@@ -54,14 +54,14 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32})
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="https://payflo.dev/og-image.jpg" />
+    <meta property="og:image" content="https://dashusd.org/poster.webp" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@payflo_dev" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://payflo.dev/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://dashusd.org/poster.webp" />
 </head>
 
 <body class="min-h-screen flex flex-col">
