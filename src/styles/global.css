@@ -85,7 +85,7 @@ body {
 
 /* ===== Button Styles & Effects ===== */
 .btn {
-    @apply inline-block px-6 py-3 rounded-lg font-medium transition-all duration-200;
+    @apply inline-block px-6 py-3 rounded-lg font-semibold tracking-wide transition-all duration-200;
     position: relative;
     overflow: hidden;
     transform: translate3d(0, 0, 0); /* For better performance */
