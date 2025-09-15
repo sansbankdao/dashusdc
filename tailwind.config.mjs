@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'dusd-green': '#228B22',
         'payflo-purple': '#7928CA',
         'payflo-blue': '#0070F3',
         'payflo-pink': '#FF4D4D',
