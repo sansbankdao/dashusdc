@@ -45,7 +45,7 @@ export default defineConfig({
                     'lock-key-duotone',
                     'certificate-duotone',
                     'lifebuoy-duotone',
-                    'handshake-duotone'
+                    'handshake-duotone',
                 ]
             }
         }),
