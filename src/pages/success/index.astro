@@ -1,317 +1,193 @@
 ---
+// src/pages/success/index.astro
 import Layout from '../../layouts/Layout.astro'
+// Restoring the original image asset from your project
+import ourCommunity from '../../assets/our-community.webp'
+import { Image } from 'astro:assets'
+
+const otherStories = [
+    {
+        title: "The Corner Cafe's Digital Leap",
+        description: "How a local coffee shop eliminated 3% credit card fees and stopped worrying about chargebacks by accepting DUSD.",
+        logo: "/partner-logo-2.svg", // Restored original image path
+        url: "/success/corner-cafe"
+    },
+    {
+        title: "PixelPioneers' In-Game Economy",
+        description: "Learn how a web3 gaming studio built a stable, thriving player economy using DUSD for in-game assets and rewards.",
+        logo: "/partner-logo-3.svg", // Restored original image path
+        url: "/success/pixel-pioneers"
+    },
+    {
+        title: "Global Goods Inc. Supply Chain",
+        description: "An import/export business cut cross-border settlement times from 5 days to 5 minutes, unlocking working capital.",
+        logo: "/partner-logo-4.svg", // Restored original image path
+        url: "/success/global-goods"
+    }
+];
 ---
 
-<Layout title="Case Studies | Dash USD">
-	<main>
-		<!-- Hero Section -->
-		<section class="pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
-			<div class="container-custom">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					<div>
-						<h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-							User <span class="gradient-text">Success Stories</span> To Inspire Your BIG Dreams
-						</h1>
+<Layout
+    title="Success Stories | Dash USD"
+    description="Discover how freelancers, merchants, and builders are using DUSD to save money, move faster, and create new opportunities."
+>
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+            <div class="container-custom">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            Real Stories, <span class="gradient-text">Real Impact</span>
+                        </h1>
+                        <p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 max-w-lg">
+                            Discover how freelancers, merchants, and builders are using the speed and stability of DUSD to transform their finances.
+                        </p>
+                        <div class="animate-on-scroll delay-2 mt-8">
+                            <a href="#featured-story" class="btn btn-primary">
+                                See Their Stories
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll delay-3">
+                        {/* This section did not originally have an Astro Image component, so I'm keeping the original structure from your template */}
+                        <div class="relative">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30"></div>
+                            <div class="relative bg-white rounded-xl shadow-xl overflow-hidden p-8">
+                                <div class="space-y-6">
+                                    {[
+                                        { title: 'Freelancers', desc: 'Getting paid globally, instantly.', icon: 'user' },
+                                        { title: 'Merchants', desc: 'Saving on fees, no chargebacks.', icon: 'store' },
+                                        { title: 'Builders', desc: 'Powering apps with stable value.', icon: 'code' }
+                                    ].map(item => (
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                                {item.icon === 'user' && <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>}
+                                                {item.icon === 'store' && <svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>}
+                                                {item.icon === 'code' && <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>}
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">{item.title}</h3>
+                                                <p class="text-gray-600">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-						<p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 max-w-lg">
-							Discover how customers and businesses are transforming their payments experience with the speed and efficiency of DUSD.
-						</p>
+        <!-- Featured Success Story -->
+        <section id="featured-story" class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Featured <span class="gradient-text">Story</span>
+                </h2>
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <div class="animate-on-scroll delay-1 grid md:grid-cols-2">
+                        <div class="p-8 md:p-12 flex flex-col">
+                            {/* Restored original image path */}
+                            <img src="/partner-logo-1.svg" alt="TechCorp Logo" class="h-10 w-auto mb-6 self-start" />
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                                A Freelancer's Cross-Border Payment Revolution
+                            </h3>
+                            <p class="text-gray-600 mb-6 flex-grow">
+                                Elena, a graphic designer in Argentina, struggled with high fees and 5-7 day delays when receiving payments from her US clients. By switching to DUSD, she gets paid instantly and keeps more of her income.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Saved over $150 in fees on her first invoice
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Payment received in 30 seconds, not 5 days
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Avoided forced currency conversion and poor rates
+                                </li>
+                            </ul>
+                            <div class="mt-auto">
+                                <a href="/success/elena-the-freelancer" class="btn btn-primary">
+                                    Read Elena's Full Story →
+                                </a>
+                            </div>
+                        </div>
+                        <div class="relative h-64 md:h-auto">
+                            {/* Restored original image path */}
+                            <img src="/readme/future-payroll.jpg" alt="A creative professional working at her desk" class="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-						<div class="animate-on-scroll delay-2 mt-8">
-							<a href="#featured-case-study" class="btn btn-primary">
-								View Case Studies
-							</a>
-						</div>
-					</div>
+        <!-- Case Studies Grid -->
+        <section class="section">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    More <span class="gradient-text">Success Stories</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {otherStories.map((story, index) => (
+                        <a href={story.url} class={`animate-on-scroll delay-${index + 1} group block`}>
+                            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 h-full hover:shadow-md transition-shadow">
+                                {/* Restored original image path */}
+                                <img src={story.logo} alt="Partner Logo" class="h-10 mb-6" />
+                                <h3 class="text-xl font-semibold mb-2 group-hover:text-payflo-purple transition-colors">{story.title}</h3>
+                                <p class="text-gray-600 mb-4">{story.description}</p>
+                                <div class="flex items-center gap-2 text-payflo-purple font-semibold mt-auto">
+                                    <span>Read more</span>
+                                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
 
-					<div class="animate-on-scroll delay-3">
-						<div class="relative">
-							<div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30"></div>
+        <!-- Use Cases Section -->
+        <section class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Find Your <span class="gradient-text">Story</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        { title: 'Global Payments', url: '/success/global-payments'},
+                        { title: 'E-commerce & Retail', url: '/success/retail'},
+                        { title: 'Web3 & DeFi', url: '/success/defi'},
+                        { title: 'Creator Economy', url: '/success/creators'}
+                    ].map((useCase, index) => (
+                        <a href={useCase.url} class={`animate-on-scroll delay-${index+1} block bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all`}>
+                            <h3 class="text-lg font-semibold text-center">{useCase.title}</h3>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
 
-							<div class="relative bg-white rounded-xl shadow-xl overflow-hidden p-8">
-								<div class="space-y-6">
-									<div class="flex items-center gap-4">
-										<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-											<svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M16 8v8m-8-8v8M12 4v16m5-16l1 1v14l-1 1H7l-1-1V5l1-1h10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</div>
-
-										<div>
-											<h3 class="font-semibold text-gray-900">
-												Enterprise
-											</h3>
-
-											<p class="text-gray-600">
-												Large-scale solutions
-											</p>
-										</div>
-									</div>
-
-									<div class="flex items-center gap-4">
-										<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-											<svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</div>
-
-										<div>
-											<h3 class="font-semibold text-gray-900">
-												Startups
-											</h3>
-
-											<p class="text-gray-600">
-												Scaling solutions
-											</p>
-										</div>
-									</div>
-
-									<div class="flex items-center gap-4">
-										<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-											<svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m4 0h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</div>
-
-										<div>
-											<h3 class="font-semibold text-gray-900">
-												SMBs
-											</h3>
-
-											<p class="text-gray-600">
-												Right-sized solutions
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Featured Success Stories -->
-		<section id="featured-case-study" class="section bg-gray-50">
-			<div class="container-custom">
-				<h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
-					Featured <span class="gradient-text">Success Story</span>
-				</h2>
-
-				<div class="bg-white rounded-xl shadow-xl overflow-hidden">
-					<div class="animate-on-scroll delay-1 grid md:grid-cols-2 gap-8">
-						<div class="p-8 md:p-12">
-							<div class="flex flex-col gap-4 mb-6">
-								<img src="/partner-logo-1.svg" alt="TechCorp Logo" class="h-32" />
-
-								<h3 class="text-2xl font-bold text-gray-900">
-									Mother's Kitchen Payroll Transformation
-								</h3>
-							</div>
-
-							<p class="text-gray-600 mb-6">
-								Learn how Mother's Kitchen streamlined their payroll process, reduced processing time by 75%, and achieved 100% compliance across multiple jurisdictions.
-							</p>
-
-							<ul class="space-y-3 mb-8">
-								<li class="flex items-center gap-2 text-gray-600">
-									<svg class="w-5 h-5 text-payflo-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-									</svg>
-									75% reduction in processing time
-								</li>
-
-								<li class="flex items-center gap-2 text-gray-600">
-									<svg class="w-5 h-5 text-payflo-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-									</svg>
-									100% compliance achievement
-								</li>
-
-								<li class="flex items-center gap-2 text-gray-600">
-									<svg class="w-5 h-5 text-payflo-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-									</svg>
-									$200,000 annual cost savings
-								</li>
-							</ul>
-
-							<a href="/success/techcorp" class="btn btn-primary">
-								Read the full story →
-							</a>
-						</div>
-
-						<div class="relative h-64 md:h-auto">
-							<img src="/readme/future-payroll.jpg" alt="TechCorp Office" class="absolute inset-0 w-full h-full object-cover" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Case Studies Grid -->
-		<section class="section">
-			<div class="container-custom">
-				<h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
-					Success <span class="gradient-text">Stories</span>
-				</h2>
-
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<a href="/success/startup-success" class="animate-on-scroll delay-1 group">
-						<div class="feature-card">
-							<img src="/partner-logo-2.svg" alt="StartupCo Logo" class="h-20 mb-4" />
-
-							<h3 class="text-xl font-semibold mb-2 group-hover:text-payflo-purple transition-colors duration-200">
-								StartupCo's Scaling Story
-							</h3>
-
-							<p class="text-gray-600 mb-4">
-								How a fast-growing startup managed payroll for their expanding team across 5 countries.
-							</p>
-
-							<div class="flex items-center gap-2 text-payflo-purple">
-								<span>Read more</span>
-								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</div>
-						</div>
-					</a>
-
-					<a href="/success/enterprise-evolution" class="animate-on-scroll delay-2 group">
-						<div class="feature-card">
-							<img src="/partner-logo-3.svg" alt="Enterprise Inc Logo" class="h-20 mb-4" />
-
-							<h3 class="text-xl font-semibold mb-2 group-hover:text-payflo-purple transition-colors duration-200">
-								Enterprise Inc's Evolution
-							</h3>
-
-							<p class="text-gray-600 mb-4">
-								Modernizing legacy systems and achieving seamless payroll integration for 10,000+ employees.
-							</p>
-
-							<div class="flex items-center gap-2 text-payflo-purple">
-								<span>Read more</span>
-								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</div>
-						</div>
-					</a>
-
-					<a href="/success/retail-revolution" class="animate-on-scroll delay-3 group">
-						<div class="feature-card">
-							<img src="/partner-logo-4.svg" alt="RetailPro Logo" class="h-20 mb-4" />
-
-							<h3 class="text-xl font-semibold mb-2 group-hover:text-payflo-purple transition-colors duration-200">
-								RetailPro's Revolution
-							</h3>
-
-							<p class="text-gray-600 mb-4">
-								Simplifying complex payroll calculations for hourly workers across 200 retail locations.
-							</p>
-
-							<div class="flex items-center gap-2 text-payflo-purple">
-								<span>Read more</span>
-								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- Industries Section -->
-		<section class="section bg-gray-50">
-			<div class="container-custom">
-				<h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
-					Browse by <span class="gradient-text">Industry</span>
-				</h2>
-
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					<a href="/success/technology" class="animate-on-scroll delay-1 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Technology
-						</h3>
-
-						<p class="text-gray-600">
-							Success stories from software companies and tech startups.
-						</p>
-					</a>
-
-					<a href="/success/retail" class="animate-on-scroll delay-2 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Retail
-						</h3>
-
-						<p class="text-gray-600">
-							How retail businesses manage complex workforce payroll.
-						</p>
-					</a>
-
-					<a href="/success/healthcare" class="animate-on-scroll delay-3 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Healthcare
-						</h3>
-
-						<p class="text-gray-600">
-							Payroll solutions for healthcare organizations.
-						</p>
-					</a>
-
-					<a href="/success/manufacturing" class="animate-on-scroll delay-4 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Manufacturing
-						</h3>
-
-						<p class="text-gray-600">
-							Managing payroll for manufacturing workforce.
-						</p>
-					</a>
-
-					<a href="/success/professional-services" class="animate-on-scroll delay-5 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Professional Services
-						</h3>
-
-						<p class="text-gray-600">
-							Solutions for consulting and service firms.
-						</p>
-					</a>
-
-					<a href="/success/nonprofit" class="animate-on-scroll delay-6 feature-card hover:shadow-xl transition-shadow duration-300">
-						<h3 class="text-lg font-semibold mb-2">
-							Nonprofit
-						</h3>
-
-						<p class="text-gray-600">
-							How nonprofits optimize their payroll processes.
-						</p>
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- CTA Section -->
-		<section class="section bg-gradient-to-r from-payflo-purple to-payflo-blue">
-			<div class="container-custom text-center">
-				<h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-white mb-8">
-					Ready to Transform Your Payments Solution?
-				</h2>
-
-				<p class="animate-on-scroll delay-1 text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-					Join 100s of successful businesses in revolutionizing your payments processing with Dash USD.
-				</p>
-
-				<a
-					href="/demo"
-					class="animate-on-scroll delay-2 btn bg-white text-payflo-purple hover:bg-white/90"
-				>
-					Book a Demo
-				</a>
-			</div>
-		</section>
-	</main>
+        <!-- CTA Section -->
+        <section class="section bg-gradient-to-r from-payflo-purple to-payflo-blue">
+            <div class="container-custom text-center">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-white mb-8">
+                    Ready to Write Your Own Success Story?
+                </h2>
+                <p class="animate-on-scroll delay-1 text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                    Join a growing ecosystem of users who are taking control of their finances. Get started with a secure DUSD wallet today.
+                </p>
+                <a
+                    href="/wallets"
+                    class="animate-on-scroll delay-2 btn bg-white text-payflo-purple hover:bg-white/90"
+                >
+                    Get Started with DUSD
+                </a>
+            </div>
+        </section>
+    </main>
 </Layout>
