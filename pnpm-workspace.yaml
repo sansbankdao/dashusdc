@@ -1,0 +1,13 @@
+packages:
+  - 'apps/*'
+
+allowBuilds:
+  core-js: true
+  ejs: true
+  esbuild: true
+  sharp: true
+  yorkie: true
+
+overrides:
+  cheerio: 1.0.0-rc.12
+  sitemap: 7.1.2

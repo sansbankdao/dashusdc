@@ -1,0 +1,140 @@
+---
+// src/pages/merchants/index.astro
+import Layout from '../../layouts/Layout.astro'
+// NEW: Import a dedicated, merchant-focused CTA component
+import MerchantCTASection from '../../components/MerchantCTASection.astro'
+
+const benefits = [
+    {
+        title: 'Eliminate Chargebacks',
+        description: 'USDC transactions are final, just like cash. Say goodbye to fraudulent chargeback claims and lost revenue.',
+        icon: 'shield'
+    },
+    {
+        title: 'Keep More of Your Money',
+        description: 'Stop paying 2-4% on every sale. USDC transaction fees are near-zero, meaning more profit stays in your pocket.',
+        icon: 'coins'
+    },
+    {
+        title: 'Instant Access to Funds',
+        description: 'No more waiting 2-3 business days for funds to settle. USDC payments arrive in your wallet in seconds.',
+        icon: 'timer'
+    },
+    {
+        title: 'Attract a Global Audience',
+        description: 'Easily accept payments from customers anywhere in the world without worrying about currency conversion or international fees.',
+        icon: 'globe'
+    }
+];
+---
+
+<Layout
+    title="Accept Dash USDC | For Merchants"
+    description="Start accepting USDC payments in minutes. Enjoy near-zero fees, instant settlement, and zero chargebacks. Grow your business with digital dollars."
+>
+    <!-- HERO SECTION: Redesigned for simplicity and ease of use -->
+    <section class="pt-20 pb-16 md:pt-28 md:pb-24">
+        <div class="container-custom">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    Start Accepting <span class="gradient-text">Digital Dollars</span> in Minutes
+                </h1>
+                <p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 text-pretty">
+                    Say goodbye to high fees, chargebacks, and waiting for your money. Welcome to instant, secure payments designed for modern businesses of any size.
+                </p>
+                <div class="animate-on-scroll delay-2 mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#get-started" class="btn btn-primary">Get Started for Free</a>
+                    <a href="#spend-usdc" class="btn btn-secondary">See Where to Spend USDC</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Get Started in 3 Easy Steps -->
+    <section id="get-started" class="py-20 bg-gray-50/50">
+        <div class="container-custom">
+            <div class="text-center max-w-3xl mx-auto animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold">
+                    Get Started in <span class="gradient-text">3 Easy Steps</span>
+                </h2>
+                <p class="mt-4 text-xl text-gray-600">
+                    You don't need any special hardware. If you have a smartphone or tablet, you're ready to go.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll">
+                    <div class="mx-auto h-16 w-16 rounded-full border-4 border-payflo-purple flex items-center justify-center text-2xl font-bold text-payflo-purple mb-6">1</div>
+                    <h3 class="text-xl font-semibold">Download a Wallet</h3>
+                    <p class="mt-3 text-gray-600">Choose a recommended wallet app from our list and install it on your phone or tablet. Setup takes two minutes.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="mx-auto h-16 w-16 rounded-full border-4 border-payflo-purple flex items-center justify-center text-2xl font-bold text-payflo-purple mb-6">2</div>
+                    <h3 class="text-xl font-semibold">Generate a QR Code</h3>
+                    <p class="mt-3 text-gray-600">When a customer is ready to pay, simply enter the amount and your wallet will create a unique QR code.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="mx-auto h-16 w-16 rounded-full border-4 border-payflo-purple flex items-center justify-center text-2xl font-bold text-payflo-purple mb-6">3</div>
+                    <h3 class="text-xl font-semibold">Get Paid Instantly</h3>
+                    <p class="mt-3 text-gray-600">Your customer scans the code and you receive the USDC in your wallet within seconds. That's it!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Where to Spend USDC -->
+    <section id="spend-usdc" class="py-20">
+        <div class="container-custom">
+            <div class="text-center max-w-3xl mx-auto animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold">
+                    Power Your Business <span class="gradient-text">with USDC</span>
+                </h2>
+                <p class="mt-4 text-xl text-gray-600">
+                    The USDC you earn isn't just for cashing out. Use it directly to pay for business essentials through a growing network of partners and services.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <!-- SUGGESTION: Replace these placeholders with actual logos -->
+                <div class="p-4 bg-gray-100 rounded-lg text-center animate-on-scroll">
+                    <p class="font-semibold text-lg">Amazon (via Bitrefill)</p>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg text-center animate-on-scroll" style="animation-delay: 0.1s">
+                    <p class="font-semibold text-lg">Alibaba</p>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg text-center animate-on-scroll" style="animation-delay: 0.2s">
+                    <p class="font-semibold text-lg">Pay Suppliers</p>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg text-center animate-on-scroll" style="animation-delay: 0.3s">
+                    <p class="font-semibold text-lg">Web Hosting & Services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Benefits Section -->
+    <section class="py-20 bg-gray-50/50">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {benefits.map((benefit, index) => (
+                    <div class="bg-white rounded-xl p-8 shadow-sm animate-on-scroll flex items-start" style={`animation-delay: ${index * 0.1}s`}>
+                        <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-gradient-to-r from-payflo-purple to-payflo-blue flex items-center justify-center text-white mr-6">
+                            {benefit.icon === 'shield' && <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>}
+                            {benefit.icon === 'coins' && <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><line x1="3" y1="3" x2="6" y2="6"></line><line x1="21" y1="3" x2="18" y2="6"></line><line x1="3" y1="21" x2="6" y2="18"></line><line x1="21" y1="21" x2="18" y2="18"></line></svg>}
+                            {benefit.icon === 'timer' && <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>}
+                            {benefit.icon === 'globe' && <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>}
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">{benefit.title}</h3>
+                            <p class="mt-2 text-gray-600">{benefit.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Use the new, merchant-focused CTA component -->
+    <MerchantCTASection />
+</Layout>

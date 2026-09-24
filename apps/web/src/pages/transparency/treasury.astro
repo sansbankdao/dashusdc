@@ -1,0 +1,97 @@
+---
+// src/pages/transparency/treasury.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Treasury & Operations Ledger | Dash USDC">
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24">
+            <div class="container-custom text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    Treasury & Operations <span class="gradient-text">Ledger</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+                    This ledger provides a transparent view of the Dash USDC protocol's operational treasury, funded by protocol fees. These funds are separate from user asset reserves.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Metrics -->
+        <section class="pb-16 md:pb-24">
+            <div class="container-custom">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-card text-center">
+                        <h3 class="text-lg font-semibold text-gray-600 mb-2">Current Treasury Balance</h3>
+                        <p class="text-4xl font-bold">$25,123,456</p>
+                    </div>
+                    <div class="feature-card text-center">
+                        <h3 class="text-lg font-semibold text-gray-600 mb-2">Inflow (Last 30d)</h3>
+                        <p class="text-4xl font-bold text-green-600">$1,234,567</p>
+                    </div>
+                    <div class="feature-card text-center">
+                        <h3 class="text-lg font-semibold text-gray-600 mb-2">Outflow (Last 30d)</h3>
+                        <p class="text-4xl font-bold text-red-600">$876,543</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treasury Transactions Section -->
+        <section class="pb-16 md:pb-24 bg-gray-50/50 py-20">
+            <div class="container-custom">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                    Recent Transactions
+                </h2>
+                <div class="bg-white rounded-xl shadow-lg p-1 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 border-b">
+                                <tr>
+                                    <th class="px-6 py-4 font-medium text-gray-600">Date</th>
+                                    <th class="px-6 py-4 font-medium text-gray-600">Category</th>
+                                    <th class="px-6 py-4 font-medium text-gray-600">Description</th>
+                                    <th class="px-6 py-4 font-medium text-gray-600 text-right">Amount (USD)</th>
+                                    <th class="px-6 py-4 font-medium text-gray-600">Tx</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4">2025-11-03</td>
+                                    <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Grant</span></td>
+                                    <td class="px-6 py-4">Community Grant: DeFi Analyzer Tool</td>
+                                    <td class="px-6 py-4 text-right tabular-nums text-red-600">-$50,000</td>
+                                    <td class="px-6 py-4"><a href="#" class="text-payflo-blue hover:underline">View</a></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4">2025-11-01</td>
+                                    <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Revenue</span></td>
+                                    <td class="px-6 py-4">Protocol Fees (October 2025)</td>
+                                    <td class="px-6 py-4 text-right tabular-nums text-green-600">+$1,234,567</td>
+                                    <td class="px-6 py-4"><a href="#" class="text-payflo-blue hover:underline">View</a></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4">2025-11-01</td>
+                                    <td class="px-6 py-4"><span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Payroll</span></td>
+                                    <td class="px-6 py-4">Core Contributor Salaries (October)</td>
+                                    <td class="px-6 py-4 text-right tabular-nums text-red-600">-$250,000</td>
+                                    <td class="px-6 py-4"><a href="#" class="text-payflo-blue hover:underline">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">2025-10-28</td>
+                                    <td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Infrastructure</span></td>
+                                    <td class="px-6 py-4">Server Hosting & RPC Node Costs</td>
+                                    <td class="px-6 py-4 text-right tabular-nums text-red-600">-$22,500</td>
+                                    <td class="px-6 py-4"><a href="#" class="text-payflo-blue hover:underline">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="#" class="btn btn-secondary">View All Transactions</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

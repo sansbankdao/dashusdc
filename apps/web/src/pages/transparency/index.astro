@@ -1,0 +1,265 @@
+---
+// src/pages/transparency/index.astro
+import Layout from '../../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+// SUGGESTION: Replace this generic image with one that reflects transparency,
+// like a dashboard mockup or a diagram of your reserve system.
+import transparencyGraphic from '../../assets/our-community.webp'
+---
+
+<Layout title="Transparency | Dash USDC by Sansbank">
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+            <div class="container-custom">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            Verifiable Trust, <span class="gradient-text">Radical Transparency</span>
+                        </h1>
+
+                        <p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 max-w-lg">
+                            Dash USDC is built on a foundation of open, auditable data. We are committed to providing our community with real-time insight into our reserves, supply, and governance.
+                        </p>
+
+                        <div class="animate-on-scroll delay-2 mt-8">
+                            <a href="#dashboards" class="btn btn-primary">
+                                View Transparency Dashboards
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll delay-3">
+                        <div class="relative">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30"></div>
+                            <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+                                <Image
+                                    src={transparencyGraphic}
+                                    alt="Dash USDC Transparency"
+                                    class="w-full h-auto"
+                                    width={700}
+                                    height={500}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Commitment Section -->
+        <section class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Our Commitment to <span class="gradient-text">Transparency</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="animate-on-scroll delay-1 feature-card">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Verification/Security -->
+                            <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-4">
+                            Verifiable Reserves
+                        </h3>
+
+                        <p class="text-gray-600 text-lg">
+                            Every USDC in circulation is backed by high-quality assets. Our reserves are regularly audited by third parties and can be verified in real-time.
+                        </p>
+                    </div>
+
+                    <div class="animate-on-scroll delay-2 feature-card">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Data/Blockchain -->
+                            <svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 8h-4.24a4 4 0 100 8H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 16h4.24a4 4 0 100-8H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-4">
+                            Live On-Chain Data
+                        </h3>
+
+                        <p class="text-gray-600 text-lg">
+                            Monitor total supply, transactions, and smart contract activity directly on the blockchain. All critical protocol data is public and accessible to everyone.
+                        </p>
+                    </div>
+
+                    <div class="animate-on-scroll delay-3 feature-card">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Community/Governance -->
+                            <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-4">
+                            Open Governance
+                        </h3>
+
+                        <p class="text-gray-600 text-lg">
+                            Track protocol decisions, treasury management, and participate in the future of Dash USDC. We believe in community-led oversight and development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="section">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Key <span class="gradient-text">Metrics</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="animate-on-scroll delay-1 feature-card">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Coins/Supply -->
+                            <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-3">
+                            Total Supply
+                        </h3>
+
+                        <p class="text-gray-600">
+                            <!-- Placeholder: Replace with dynamic data -->
+                            1,234,567,890 USDC
+                        </p>
+                    </div>
+
+                    <div class="animate-on-scroll delay-2 feature-card">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Percentage/Ratio -->
+                            <svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="6.5" r="2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.5" cy="17.5" r="2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-3">
+                            Collateralization Ratio
+                        </h3>
+
+                        <p class="text-gray-600">
+                            <!-- Placeholder: Replace with dynamic data -->
+                            105.3%
+                        </p>
+                    </div>
+
+                    <div class="animate-on-scroll delay-3 feature-card">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Document/Audit -->
+                            <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15.5l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-3">
+                            Security Audits
+                        </h3>
+
+                        <p class="text-gray-600">
+                            Contracts audited by leading firms.
+                        </p>
+                    </div>
+
+                    <div class="animate-on-scroll delay-4 feature-card">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-5">
+                            <!-- Icon for Vault/Treasury -->
+                            <svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-3">
+                            Treasury Value
+                        </h3>
+
+                        <p class="text-gray-600">
+                            <!-- Placeholder: Replace with dynamic data -->
+                            $25,123,456 USD
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transparency Dashboards Section -->
+        <section id="dashboards" class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Transparency <span class="gradient-text">Dashboards</span>
+                </h2>
+
+                <div class="space-y-6">
+                    <div class="animate-on-scroll delay-1 feature-card">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">
+                                    Proof of Reserves
+                                </h3>
+
+                                <p class="text-gray-600 text-lg mb-4 md:mb-0">
+                                    View a detailed, real-time breakdown of the assets backing Dash USDC. Verify our solvency 24/7.
+                                </p>
+                            </div>
+
+                            <a href="/transparency/reserves" class="mt-4 md:mt-0 btn btn-primary flex-shrink-0">
+                                View Dashboard →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll delay-2 feature-card">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">
+                                    Treasury & Operations
+                                </h3>
+
+                                <p class="text-gray-600 text-lg mb-4 md:mb-0">
+                                    Explore a complete ledger of our operational treasury, including expenses, revenue, and investments.
+                                </p>
+                            </div>
+
+                            <a href="/transparency/treasury" class="mt-4 md:mt-0 btn btn-primary flex-shrink-0">
+                                View Ledger →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll delay-3 feature-card">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2">
+                                    Governance Portal
+                                </h3>
+
+                                <p class="text-gray-600 text-lg mb-4 md:mb-0">
+                                    Review past proposals, monitor voting activity, and see how key decisions affecting the protocol are made.
+                                </p>
+                            </div>
+
+                            <a href="/governance" class="mt-4 md:mt-0 btn btn-primary flex-shrink-0">
+                                Go to Portal →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section bg-gradient-to-r from-payflo-purple to-payflo-blue">
+            <div class="container-custom text-center">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-white mb-8">
+                    Have a Suggestion?
+                </h2>
+
+                <p class="animate-on-scroll delay-1 text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                    We're always looking to improve how we share information with our community. If there is data you'd like to see, please send us your feedback.
+                </p>
+
+                <a
+                    href="/contact"
+                    class="animate-on-scroll delay-2 btn bg-white text-payflo-purple hover:bg-white/90"
+                >
+                    Reach Out to Us
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>

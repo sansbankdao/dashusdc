@@ -1,0 +1,105 @@
+---
+const faqs = [
+    {
+        question: `What is Dash USDC?`,
+        answer: `Dash USDC is a stablecoin that allows users to leverage the speed and security of DASH for everyday transactions with merchants, providing a seamless and convenient payment experience.`
+    },
+    {
+        question: `How does USDC maintain its stability?`,
+        answer: `USDC is backed by an algorithmic stablecoin protocol based on Liquity v2 — similar to other emerging stable currencies like Moria (MUSD).`
+    },
+    {
+        question: `Can I use USDC for online and in-store purchases?`,
+        answer: `Yes, USDC is designed to be used for both online and in-store purchases, offering merchants and consumers a flexible and efficient payment option.`
+    },
+    {
+        question: `Is USDC secure?`,
+        answer: `Absolutely! USDC benefits from the robust security features of the DASH Evolution network, ensuring that all transactions are safe and protected.`
+    },
+    {
+        question: `How do I acquire USDC?`,
+        answer: `You can acquire USDC by exchanging DASH or other supported cryptocurrencies through our DashSwap decentralized exchange (DEX) or ANY one of our partner exchanges.`
+    },
+    {
+        question: `Are there any fees associated with using USDC?`,
+        answer: `Transaction fees for USDC are minimal and designed to be competitive with other stablecoins (e.g. USDT and USDC), ensuring cost-effective usage for both merchants and consumers.`
+    },
+    {
+        question: `Can I convert USDC back to DASH or other cryptocurrencies?`,
+        answer: `Yes, you can easily convert USDC back to DASH or other supported cryptocurrencies at any time, providing flexibility and control over your assets.`
+    },
+    {
+        question: `Is USDC regulated?`,
+        answer: `USDC complies with relevant regulations and is designed to operate within the legal frameworks of the jurisdictions it services, ensuring a trustworthy and compliant stable coin solution.`
+    },
+    {
+        question: `How can merchants integrate USDC into their payment systems?`,
+        answer: `Merchants can integrate USDC through our API or by partnering with payment processors that support USDC, making the integration process straightforward and efficient.`
+    },
+    {
+        question: `What make USDC different from other stablecoins?`,
+        answer: `USDC stands out by combining the disruptive financial technology of DASH with an effortless payments experience, offering users the best of both worlds in terms of speed, security, and convenience.`
+    },
+]
+---
+
+<section class="py-20 bg-payflo-gray relative overflow-hidden">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-repeat" style="background-image: url('/grid-pattern.svg');"></div>
+    </div>
+
+    <div class="container-custom relative">
+        <div class="text-center max-w-3xl mx-auto animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold">
+                Frequently Asked Questions
+            </h2>
+
+            <p class="mt-4 text-xl text-gray-600">
+                Everything you need to know about our payroll infrastructure.
+            </p>
+        </div>
+
+        <div class="mt-12 max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+                <div
+                    class="mb-6 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden animate-on-scroll faq-item hover:shadow-md transition-all duration-300"
+                    style={`animation-delay: ${index * 0.1}s`}
+                >
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-6 transition-all duration-300 hover:bg-gray-50">
+                            <h3 class="text-lg font-medium transition-colors duration-300 group-hover:text-payflo-purple">
+                                {faq.question}
+                            </h3>
+
+                            <div class="flex-shrink-0 ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </summary>
+
+                        <div class="px-6 py-6 text-gray-600 faq-content">
+                            <p>
+                                {faq.answer}
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            ))}
+        </div>
+
+        <div class="mt-12 text-center animate-on-scroll">
+            <p class="text-gray-600">
+                Still have questions? We're here to help.
+            </p>
+
+            <a href="/contact" class="mt-4 inline-flex items-center text-payflo-purple font-medium hover:underline group">
+                Contact Us
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>

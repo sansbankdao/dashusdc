@@ -1,29 +1,22 @@
 {
-  "name": "dashusd.org",
-  "type": "module",
-  "version": "25.8.19",
+  "name": "dashusdc",
+  "version": "25.9.24",
+  "private": true,
+  "description": "Dash USDC — a shielded USDC stablecoin on Dash Platform.",
+  "license": "MIT",
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/sitemap": "3.0.3",
-    "@astrojs/tailwind": "5.0.3",
-    "@fontsource-variable/inter": "5.0.15",
-    "@iconify-json/ph": "1.2.2",
-    "astro": "5.7.0",
-    "astro-icon": "1.0.0",
-    "cheerio": "1.1.2",
-    "sharp": "0.34.3",
-    "tailwindcss": "3.3.6"
-  },
-  "devDependencies": {
-    "sass": "1.69.5"
-  },
-  "resolutions": {
-    "cheerio": "1.0.0-rc.12"
+    "dev": "pnpm --filter @dashusdc/web dev",
+    "dev:web": "pnpm --filter @dashusdc/web dev",
+    "dev:map": "pnpm --filter @dashusdc/map serve",
+    "dev:docs": "pnpm --filter @dashusdc/docs dev",
+    "build": "pnpm -r build",
+    "build:web": "pnpm --filter @dashusdc/web build",
+    "build:map": "pnpm --filter @dashusdc/map build",
+    "build:docs": "pnpm --filter @dashusdc/docs build",
+    "preview:web": "pnpm --filter @dashusdc/web preview"
   }
 }

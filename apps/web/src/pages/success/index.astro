@@ -1,0 +1,193 @@
+---
+// src/pages/success/index.astro
+import Layout from '../../layouts/Layout.astro'
+// Restoring the original image asset from your project
+import ourCommunity from '../../assets/our-community.webp'
+import { Image } from 'astro:assets'
+
+const otherStories = [
+    {
+        title: "The Corner Cafe's Digital Leap",
+        description: "How a local coffee shop eliminated 3% credit card fees and stopped worrying about chargebacks by accepting USDC.",
+        logo: "/partner-logo-2.svg", // Restored original image path
+        url: "/success/corner-cafe"
+    },
+    {
+        title: "PixelPioneers' In-Game Economy",
+        description: "Learn how a web3 gaming studio built a stable, thriving player economy using USDC for in-game assets and rewards.",
+        logo: "/partner-logo-3.svg", // Restored original image path
+        url: "/success/pixel-pioneers"
+    },
+    {
+        title: "Global Goods Inc. Supply Chain",
+        description: "An import/export business cut cross-border settlement times from 5 days to 5 minutes, unlocking working capital.",
+        logo: "/partner-logo-4.svg", // Restored original image path
+        url: "/success/global-goods"
+    }
+];
+---
+
+<Layout
+    title="Success Stories | Dash USDC"
+    description="Discover how freelancers, merchants, and builders are using USDC to save money, move faster, and create new opportunities."
+>
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+            <div class="container-custom">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            Real Stories, <span class="gradient-text">Real Impact</span>
+                        </h1>
+                        <p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 max-w-lg">
+                            Discover how freelancers, merchants, and builders are using the speed and stability of USDC to transform their finances.
+                        </p>
+                        <div class="animate-on-scroll delay-2 mt-8">
+                            <a href="#featured-story" class="btn btn-primary">
+                                See Their Stories
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll delay-3">
+                        {/* This section did not originally have an Astro Image component, so I'm keeping the original structure from your template */}
+                        <div class="relative">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30"></div>
+                            <div class="relative bg-white rounded-xl shadow-xl overflow-hidden p-8">
+                                <div class="space-y-6">
+                                    {[
+                                        { title: 'Freelancers', desc: 'Getting paid globally, instantly.', icon: 'user' },
+                                        { title: 'Merchants', desc: 'Saving on fees, no chargebacks.', icon: 'store' },
+                                        { title: 'Builders', desc: 'Powering apps with stable value.', icon: 'code' }
+                                    ].map(item => (
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                                {item.icon === 'user' && <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>}
+                                                {item.icon === 'store' && <svg class="w-6 h-6 text-payflo-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>}
+                                                {item.icon === 'code' && <svg class="w-6 h-6 text-payflo-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>}
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold text-gray-900">{item.title}</h3>
+                                                <p class="text-gray-600">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Success Story -->
+        <section id="featured-story" class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Featured <span class="gradient-text">Story</span>
+                </h2>
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <div class="animate-on-scroll delay-1 grid md:grid-cols-2">
+                        <div class="p-8 md:p-12 flex flex-col">
+                            {/* Restored original image path */}
+                            <img src="/partner-logo-1.svg" alt="TechCorp Logo" class="h-10 w-auto mb-6 self-start" />
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                                A Freelancer's Cross-Border Payment Revolution
+                            </h3>
+                            <p class="text-gray-600 mb-6 flex-grow">
+                                Elena, a graphic designer in Argentina, struggled with high fees and 5-7 day delays when receiving payments from her US clients. By switching to USDC, she gets paid instantly and keeps more of her income.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Saved over $150 in fees on her first invoice
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Payment received in 30 seconds, not 5 days
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <svg class="w-5 h-5 text-payflo-purple flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    Avoided forced currency conversion and poor rates
+                                </li>
+                            </ul>
+                            <div class="mt-auto">
+                                <a href="/success/elena-the-freelancer" class="btn btn-primary">
+                                    Read Elena's Full Story →
+                                </a>
+                            </div>
+                        </div>
+                        <div class="relative h-64 md:h-auto">
+                            {/* Restored original image path */}
+                            <img src="/readme/future-payroll.jpg" alt="A creative professional working at her desk" class="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Grid -->
+        <section class="section">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    More <span class="gradient-text">Success Stories</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {otherStories.map((story, index) => (
+                        <a href={story.url} class={`animate-on-scroll delay-${index + 1} group block`}>
+                            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 h-full hover:shadow-md transition-shadow">
+                                {/* Restored original image path */}
+                                <img src={story.logo} alt="Partner Logo" class="h-10 mb-6" />
+                                <h3 class="text-xl font-semibold mb-2 group-hover:text-payflo-purple transition-colors">{story.title}</h3>
+                                <p class="text-gray-600 mb-4">{story.description}</p>
+                                <div class="flex items-center gap-2 text-payflo-purple font-semibold mt-auto">
+                                    <span>Read more</span>
+                                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="section bg-gray-50">
+            <div class="container-custom">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-center mb-16">
+                    Find Your <span class="gradient-text">Story</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        { title: 'Global Payments', url: '/success/global-payments'},
+                        { title: 'E-commerce & Retail', url: '/success/retail'},
+                        { title: 'Web3 & DeFi', url: '/success/defi'},
+                        { title: 'Creator Economy', url: '/success/creators'}
+                    ].map((useCase, index) => (
+                        <a href={useCase.url} class={`animate-on-scroll delay-${index+1} block bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all`}>
+                            <h3 class="text-lg font-semibold text-center">{useCase.title}</h3>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section bg-gradient-to-r from-payflo-purple to-payflo-blue">
+            <div class="container-custom text-center">
+                <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold text-white mb-8">
+                    Ready to Write Your Own Success Story?
+                </h2>
+                <p class="animate-on-scroll delay-1 text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                    Join a growing ecosystem of users who are taking control of their finances. Get started with a secure USDC wallet today.
+                </p>
+                <a
+                    href="/wallets"
+                    class="animate-on-scroll delay-2 btn bg-white text-payflo-purple hover:bg-white/90"
+                >
+                    Get Started with USDC
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
