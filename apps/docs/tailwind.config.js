@@ -1,8 +1,9 @@
+// apps/docs/tailwind.config.js
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
+  content: ['./src/**/*.{astro,js,jsx,md,mdx}'],
   darkMode: 'class',
   theme: {
     fontSize: {

@@ -1,0 +1,77 @@
+---
+// apps/docs/src/components/icons/InstallationIcon.astro
+interface Props {
+  id: string
+  color?: string
+}
+
+const { id, color = 'blue' } = Astro.props
+---
+
+<defs>
+  <radialGradient
+    id={`${id}-gradient`}
+    cx={0}
+    cy={0}
+    r={1}
+    gradientUnits="userSpaceOnUse"
+    gradientTransform="matrix(0 21 -21 0 12 3)"
+  >
+    {color === 'blue' && (
+      <>
+        <stop stop-color="#0EA5E9" />
+        <stop stop-color="#22D3EE" offset=".527" />
+        <stop stop-color="#818CF8" offset={1} />
+      </>
+    )}
+    {color === 'amber' && (
+      <>
+        <stop stop-color="#FDE68A" offset=".08" />
+        <stop stop-color="#F59E0B" offset=".837" />
+      </>
+    )}
+  </radialGradient>
+  <radialGradient
+    id={`${id}-gradient-dark`}
+    cx={0}
+    cy={0}
+    r={1}
+    gradientUnits="userSpaceOnUse"
+    gradientTransform="matrix(0 21 -21 0 16 7)"
+  >
+    {color === 'blue' && (
+      <>
+        <stop stop-color="#0EA5E9" />
+        <stop stop-color="#22D3EE" offset=".527" />
+        <stop stop-color="#818CF8" offset={1} />
+      </>
+    )}
+    {color === 'amber' && (
+      <>
+        <stop stop-color="#FDE68A" offset=".08" />
+        <stop stop-color="#F59E0B" offset=".837" />
+      </>
+    )}
+  </radialGradient>
+</defs>
+<g class="dark:hidden">
+  <circle cx={12} cy={12} r={12} fill={`url(#${id}-gradient)`} />
+  <path
+    d="m8 8 9 21 2-10 10-2L8 8Z"
+    fill-opacity={0.5}
+    class="fill-[var(--icon-background)] stroke-[color:var(--icon-foreground)]"
+    stroke-width={2}
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</g>
+<g class="hidden dark:inline">
+  <path
+    d="m4 4 10.286 24 2.285-11.429L28 14.286 4 4Z"
+    fill={`url(#${id}-gradient-dark)`}
+    stroke={`url(#${id}-gradient-dark)`}
+    stroke-width={2}
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</g>

@@ -1,0 +1,18 @@
+// apps/docs/src/content.config.ts
+import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
+
+const docs = defineCollection({
+  loader: glob({
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/docs',
+    generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, ''),
+  }),
+  schema: z.object({
+    title: z.string(),
+    pageTitle: z.string().optional(),
+    description: z.string().optional(),
+  }),
+})
+
+export const collections = { docs }

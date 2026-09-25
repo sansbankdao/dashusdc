@@ -1,0 +1,144 @@
+---
+// apps/docs/src/components/TableOfContents.astro
+import clsx from 'clsx'
+
+interface Props {
+  tableOfContents: {
+    id: string
+    title: string
+    children: { id: string; title: string }[]
+  }[]
+}
+
+const { tableOfContents } = Astro.props
+---
+
+<nav aria-labelledby="on-this-page-title" class="w-56" data-toc>
+  {tableOfContents.length > 0 && (
+    <>
+      <h2
+        id="on-this-page-title"
+        class="font-display text-sm font-medium text-slate-900 dark:text-white"
+      >
+        On this page
+      </h2>
+      <ol role="list" class="mt-4 space-y-3 text-sm">
+        {tableOfContents.map((section) => (
+          <li data-toc-section={section.id}>
+            <h3>
+              <a
+                href={`#${section.id}`}
+                class="font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+                data-toc-link={section.id}
+              >
+                {section.title}
+              </a>
+            </h3>
+            {section.children.length > 0 && (
+              <ol
+                role="list"
+                class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400"
+              >
+                {section.children.map((subSection) => (
+                  <li data-toc-section={subSection.id}>
+                    <a
+                      href={`#${subSection.id}`}
+                      class="hover:text-slate-600 dark:hover:text-slate-300"
+                      data-toc-link={subSection.id}
+                    >
+                      {subSection.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </li>
+        ))}
+      </ol>
+    </>
+  )}
+</nav>
+
+<script>
+  // apps/docs/src/components/TableOfContents.astro
+  const toc = document.querySelector('[data-toc]')
+
+  if (toc) {
+    const links = Array.from(
+      toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')
+    )
+
+    function getHeadings() {
+      return links
+        .map((link) => {
+          const id = link.dataset.tocLink
+          if (!id) return
+          const el = document.getElementById(id)
+          if (!el) return
+
+          const style = window.getComputedStyle(el)
+          const scrollMt = parseFloat(style.scrollMarginTop)
+
+          const top =
+            window.scrollY + el.getBoundingClientRect().top - scrollMt
+          return { id, top }
+        })
+        .filter(
+          (heading): heading is { id: string; top: number } =>
+            heading !== undefined
+        )
+    }
+
+    if (links.length > 0) {
+      let headings = getHeadings()
+
+      function isActive(id: string) {
+        return id === current
+      }
+
+      let current = headings[0]?.id
+
+      function applyStyles() {
+        links.forEach((link) => {
+          const id = link.dataset.tocLink
+          const active = id === current
+          link.classList.toggle('text-sky-500', active)
+          link.classList.toggle('font-normal', !active)
+          link.classList.toggle('text-slate-500', !active)
+          link.classList.toggle(
+            'hover:text-slate-700',
+            !active
+          )
+          link.classList.toggle('dark:text-slate-400', !active)
+          link.classList.toggle(
+            'dark:hover:text-slate-300',
+            !active
+          )
+        })
+      }
+
+      function onScroll() {
+        const top = window.scrollY
+        let next = headings[0].id
+        for (const heading of headings) {
+          if (top >= heading.top) {
+            next = heading.id
+          } else {
+            break
+          }
+        }
+        if (next !== current) {
+          current = next
+          applyStyles()
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('resize', () => {
+        headings = getHeadings()
+      })
+      applyStyles()
+      onScroll()
+    }
+  }
+</script>

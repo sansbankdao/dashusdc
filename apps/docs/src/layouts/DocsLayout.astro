@@ -1,0 +1,287 @@
+---
+// apps/docs/src/layouts/DocsLayout.astro
+import clsx from 'clsx'
+
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import Navigation from '../components/Navigation.astro'
+import Prose from '../components/Prose.astro'
+import TableOfContents from '../components/TableOfContents.astro'
+
+import '../styles/tailwind.css'
+
+export interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
+
+interface Props {
+  title?: string
+  frontmatter?: {
+    title?: string
+    pageTitle?: string
+    description?: string
+  }
+  headings?: Heading[]
+  currentPath?: string
+  url?: URL
+}
+
+const navigation = [
+  {
+    title: 'Introduction',
+    links: [
+      { title: 'Getting started', href: '/' },
+      { title: 'Installation', href: '/docs/installation' },
+    ],
+  },
+  {
+    title: 'Core concepts',
+    links: [
+      { title: 'Understanding caching', href: '/docs/understanding-caching' },
+      {
+        title: 'Predicting user behavior',
+        href: '/docs/predicting-user-behavior',
+      },
+      { title: 'Basics of time-travel', href: '/docs/basics-of-time-travel' },
+      {
+        title: 'Introduction to string theory',
+        href: '/docs/introduction-to-string-theory',
+      },
+      { title: 'The butterfly effect', href: '/docs/the-butterfly-effect' },
+    ],
+  },
+  {
+    title: 'Advanced guides',
+    links: [
+      { title: 'Writing plugins', href: '/docs/writing-plugins' },
+      { title: 'Neuralink integration', href: '/docs/neuralink-integration' },
+      { title: 'Temporal paradoxes', href: '/docs/temporal-paradoxes' },
+      { title: 'Testing', href: '/docs/testing' },
+      { title: 'Compile-time caching', href: '/docs/compile-time-caching' },
+      {
+        title: 'Predictive data generation',
+        href: '/docs/predictive-data-generation',
+      },
+    ],
+  },
+  {
+    title: 'API reference',
+    links: [
+      { title: 'CacheAdvance.predict()', href: '/docs/cacheadvance-predict' },
+      { title: 'CacheAdvance.flush()', href: '/docs/cacheadvance-flush' },
+      { title: 'CacheAdvance.revert()', href: '/docs/cacheadvance-revert' },
+      { title: 'CacheAdvance.regret()', href: '/docs/cacheadvance-regret' },
+    ],
+  },
+  {
+    title: 'Contributing',
+    links: [
+      { title: 'How to contribute', href: '/docs/how-to-contribute' },
+      { title: 'Architecture guide', href: '/docs/architecture-guide' },
+      { title: 'Design principles', href: '/docs/design-principles' },
+    ],
+  },
+]
+
+const themeScript = `
+  let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
+
+  function updateTheme(theme) {
+    theme = theme ?? window.localStorage.theme ?? 'system'
+
+    if (theme === 'dark' || (theme === 'system' && isDarkMode.matches)) {
+      document.documentElement.classList.add('dark')
+    } else if (theme === 'light' || (theme === 'system' && !isDarkMode.matches)) {
+      document.documentElement.classList.remove('dark')
+    }
+
+    return theme
+  }
+
+  function updateThemeWithoutTransitions(theme) {
+    updateTheme(theme)
+    document.documentElement.classList.add('[&_*]:!transition-none')
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none')
+    }, 0)
+  }
+
+  document.documentElement.setAttribute('data-theme', updateTheme())
+
+  new MutationObserver(([{ oldValue }]) => {
+    let newValue = document.documentElement.getAttribute('data-theme')
+    if (newValue !== oldValue) {
+      try {
+        window.localStorage.setItem('theme', newValue)
+      } catch {}
+      updateThemeWithoutTransitions(newValue)
+    }
+  }).observe(document.documentElement, { attributeFilter: ['data-theme'], attributeOldValue: true })
+
+  isDarkMode.addEventListener('change', () => updateThemeWithoutTransitions())
+`
+
+const frontmatter = Astro.props.frontmatter ?? {}
+const headings = Astro.props.headings ?? []
+const rawPath =
+  Astro.props.currentPath ?? Astro.props.url?.pathname ?? Astro.url.pathname
+
+function normalizePath(path: string) {
+  if (path.length > 1 && path.endsWith('/')) {
+    return path.replace(/\/+$/, '')
+  }
+  return path
+}
+
+const currentPath = normalizePath(rawPath)
+
+const title = Astro.props.title ?? frontmatter.title
+
+const pageTitle =
+  frontmatter.pageTitle ||
+  `${frontmatter.title} - Docs`
+
+const description = frontmatter.description
+
+const isHomePage = currentPath === '/'
+
+const allLinks = navigation.flatMap((section) => section.links)
+const linkIndex = allLinks.findIndex((link) => link.href === currentPath)
+const previousPage = allLinks[linkIndex - 1]
+const nextPage = allLinks[linkIndex + 1]
+const section = navigation.find((section) =>
+  section.links.find((link) => link.href === currentPath)
+)
+
+function buildTableOfContents(headings: Heading[]) {
+  let sections: {
+    id: string
+    title: string
+    children: { id: string; title: string }[]
+  }[] = []
+
+  for (let heading of headings) {
+    if (heading.depth === 2 || heading.depth === 3) {
+      if (heading.depth === 3) {
+        if (!sections[sections.length - 1]) {
+          throw new Error(
+            'Cannot add `h3` to table of contents without a preceding `h2`'
+          )
+        }
+        sections[sections.length - 1].children.push({
+          id: heading.slug,
+          title: heading.text,
+        })
+      } else {
+        sections.push({
+          id: heading.slug,
+          title: heading.text,
+          children: [],
+        })
+      }
+    }
+  }
+
+  return sections
+}
+
+const tableOfContents = buildTableOfContents(headings)
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="antialiased [font-feature-settings:'ss01']"
+  style="scroll-behavior: smooth"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" href="/favicon.ico" />
+    <script is:inline set:html={themeScript} />
+    <script>
+      // apps/docs/src/layouts/DocsLayout.astro
+      import 'focus-visible'
+    </script>
+  </head>
+  <body class="bg-white dark:bg-slate-900">
+    <Header navigation={navigation} currentPath={currentPath} />
+
+    {isHomePage && <Hero />}
+
+    <div class="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
+      <div class="hidden lg:relative lg:block lg:flex-none">
+        <div class="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden"></div>
+        <div class="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block"></div>
+        <div class="absolute top-28 bottom-0 right-0 hidden w-px bg-slate-800 dark:block"></div>
+        <div class="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5">
+          <Navigation
+            navigation={navigation}
+            currentPath={currentPath}
+            class="w-64 pr-8 xl:w-72 xl:pr-16"
+          />
+        </div>
+      </div>
+      <div class="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+        <article>
+          {(title || section) && (
+            <header class="mb-9 space-y-1">
+              {section && (
+                <p class="font-display text-sm font-medium text-sky-500">
+                  {section.title}
+                </p>
+              )}
+              {title && (
+                <h1 class="font-display text-3xl tracking-tight text-slate-900 dark:text-white">
+                  {title}
+                </h1>
+              )}
+            </header>
+          )}
+          <Prose>
+            <slot />
+          </Prose>
+        </article>
+        <dl class="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
+          {previousPage && (
+            <div>
+              <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
+                Previous
+              </dt>
+              <dd class="mt-1">
+                <a
+                  href={previousPage.href}
+                  class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                >
+                  <span aria-hidden="true">&larr;</span> {previousPage.title}
+                </a>
+              </dd>
+            </div>
+          )}
+          {nextPage && (
+            <div class="ml-auto text-right">
+              <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
+                Next
+              </dt>
+              <dd class="mt-1">
+                <a
+                  href={nextPage.href}
+                  class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                >
+                  {nextPage.title} <span aria-hidden="true">&rarr;</span>
+                </a>
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+      <div class="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+        <TableOfContents tableOfContents={tableOfContents} />
+      </div>
+    </div>
+  </body>
+</html>

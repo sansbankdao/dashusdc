@@ -8,7 +8,7 @@ This repository is a [pnpm](https://pnpm.io/) monorepo:
 | --- | --- | --- |
 | `@dashusdc/web` | [`apps/web`](./apps/web) | Marketing site (Astro + Tailwind CSS). |
 | `@dashusdc/map` | [`apps/map`](./apps/map) | Global crypto merchant directory (Vue 2 + Mapbox/Leaflet). |
-| `@dashusdc/docs` | [`apps/docs`](./apps/docs) | Documentation site (Next.js + Markdoc). |
+| `@dashusdc/docs` | [`apps/docs`](./apps/docs) | Documentation site (Astro + Tailwind CSS). |
 
 ## Getting started
 
@@ -23,7 +23,7 @@ Run a single app in development:
 ```bash
 pnpm dev:web    # https://localhost:4321
 pnpm dev:map    # https://localhost:8080
-pnpm dev:docs   # https://localhost:3000
+pnpm dev:docs   # https://localhost:4321
 ```
 
 Build every app:

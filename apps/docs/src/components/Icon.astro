@@ -1,0 +1,54 @@
+---
+// apps/docs/src/components/Icon.astro
+import clsx from 'clsx'
+
+import InstallationIcon from './icons/InstallationIcon.astro'
+import LightbulbIcon from './icons/LightbulbIcon.astro'
+import PluginsIcon from './icons/PluginsIcon.astro'
+import PresetsIcon from './icons/PresetsIcon.astro'
+import ThemingIcon from './icons/ThemingIcon.astro'
+import WarningIcon from './icons/WarningIcon.astro'
+
+interface Props {
+  color?: 'blue' | 'amber'
+  icon:
+    | 'installation'
+    | 'presets'
+    | 'plugins'
+    | 'theming'
+    | 'lightbulb'
+    | 'warning'
+  class?: string
+}
+
+const icons = {
+  installation: InstallationIcon,
+  presets: PresetsIcon,
+  plugins: PluginsIcon,
+  theming: ThemingIcon,
+  lightbulb: LightbulbIcon,
+  warning: WarningIcon,
+}
+
+const iconStyles = {
+  blue: '[--icon-foreground:theme(colors.slate.900)] [--icon-background:theme(colors.white)]',
+  amber:
+    '[--icon-foreground:theme(colors.amber.900)] [--icon-background:theme(colors.amber.100)]',
+}
+
+const { color = 'blue', icon, class: className, ...props } = Astro.props
+
+const IconComponent = icons[icon]
+
+let id = `icon-${Math.random().toString(36).slice(2, 10)}`
+---
+
+<svg
+  aria-hidden="true"
+  viewBox="0 0 32 32"
+  fill="none"
+  class={clsx(className, iconStyles[color])}
+  {...props}
+>
+  <IconComponent id={id} color={color} />
+</svg>

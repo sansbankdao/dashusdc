@@ -1,6 +1,8 @@
+---
+// apps/docs/src/components/Callout.astro
 import clsx from 'clsx'
 
-import { Icon } from '@/components/Icon'
+import Icon from './Icon.astro'
 
 const styles = {
   note: {
@@ -18,24 +20,32 @@ const styles = {
 }
 
 const icons = {
-  note: (props) => <Icon icon="lightbulb" {...props} />,
-  warning: (props) => <Icon icon="warning" color="amber" {...props} />,
+  note: { icon: 'lightbulb', color: 'blue' },
+  warning: { icon: 'warning', color: 'amber' },
 }
 
-export function Callout({ type = 'note', title, children }) {
-  let IconComponent = icons[type]
+interface Props {
+  type?: keyof typeof styles
+  title: string
+}
 
-  return (
-    <div className={clsx('my-8 flex rounded-3xl p-6', styles[type].container)}>
-      <IconComponent className="h-8 w-8 flex-none" />
-      <div className="ml-4 flex-auto">
-        <p className={clsx('m-0 font-display text-xl', styles[type].title)}>
-          {title}
-        </p>
-        <div className={clsx('prose mt-2.5', styles[type].body)}>
-          {children}
-        </div>
-      </div>
+const { type = 'note', title } = Astro.props
+
+const IconComponent = icons[type]
+---
+
+<div class={clsx('my-8 flex rounded-3xl p-6', styles[type].container)}>
+  <Icon
+    icon={IconComponent.icon as any}
+    color={IconComponent.color as any}
+    class="h-8 w-8 flex-none"
+  />
+  <div class="ml-4 flex-auto">
+    <p class={clsx('m-0 font-display text-xl', styles[type].title)}>
+      {title}
+    </p>
+    <div class={clsx('prose mt-2.5', styles[type].body)}>
+      <slot />
     </div>
-  )
-}
+  </div>
+</div>
