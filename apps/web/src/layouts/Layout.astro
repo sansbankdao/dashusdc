@@ -1,4 +1,5 @@
 ---
+// apps/web/src/layouts/Layout.astro
 import { ViewTransitions } from 'astro:transitions'
 import { getImage } from 'astro:assets'
 
@@ -71,6 +72,15 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32})
 </a>
 
 <Header />
+
+<!-- Site-wide disclaimer banner. Present on every page via the shared layout. Content is duplicated
+     in the footer for redundancy; do not remove either instance without legal review. -->
+<div class="w-full bg-amber-50 border-y border-amber-300" role="note" aria-label="Legal disclaimer">
+    <div class="container-custom py-3 text-center text-amber-900 text-xs sm:text-sm leading-relaxed">
+        <span class="font-semibold">DISCLAIMER:</span>
+        Dash USDC is an independent project by Sansbank DAO and is <span class="font-semibold">not affiliated with, endorsed by, sponsored by, or associated with</span> any third-party stablecoin issuer, cryptocurrency issuer, payment network, or trademark holder. Not financial advice. Digital assets carry risk.
+    </div>
+</div>
 
 <main id="main-content" class="flex-grow">
     <slot />

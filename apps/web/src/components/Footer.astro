@@ -1,9 +1,10 @@
 ---
+// apps/web/src/components/Footer.astro
 import { Image } from 'astro:assets'
 import logoSrc from '../assets/logo.svg'
 
 const platformLinks = [
-    { name: 'About USDC', href: '/about' },
+    { name: 'About DASH', href: '/about' },
     { name: 'Read Our Articles', href: '/readme' },
     { name: '100% Transparency', href: '/transparency' },
     { name: 'Get In Touch', href: '/contact' },
@@ -43,10 +44,10 @@ const socialLinks = [
     <div class="container-custom relative">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
             <div class="lg:col-span-2">
-                <a href="/" class="inline-block transition-transform duration-300 hover:scale-105" aria-label="Dash USDC home">
+                <a href="/" class="inline-block transition-transform duration-300 hover:scale-105" aria-label="Dash home">
                     <Image
                         src={logoSrc}
-                        alt="Dash USDC Logo"
+                        alt="Dash Logo"
                         width={120}
                         height={120}
                         class="rounded-xl border border-amber-300/50"
@@ -56,6 +57,17 @@ const socialLinks = [
                 <p class="mt-4 text-slate-200 text-lg font-light max-w-md tracking-wider">
                     Dash USDC is the effortless solution for everyday people to <span class="font-extrabold">enjoy the benefits</span> of digital currency in their everyday lives.
                 </p>
+
+                <!-- Clear independence / no-affiliation disclaimer. Required by the trademark review; keep visible on every page. -->
+                <div class="mt-6 p-4 rounded-lg border border-amber-400/60 bg-amber-400/10 text-slate-100 text-sm leading-relaxed max-w-md" role="note" aria-label="Disclaimer">
+                    <p class="font-semibold text-amber-300 mb-2">DISCLAIMER</p>
+                    <p>
+                        Dash USDC and this website are independent projects operated by Sansbank DAO. They are <span class="font-semibold">not affiliated with, endorsed by, sponsored by, or associated with</span> any third-party stablecoin issuer, cryptocurrency issuer, payment network, fintech company, or trademark holder. Any reference to reserve assets or third-party stablecoins is descriptive only and does not imply any partnership, endorsement, or sponsorship. All third-party names, logos, and trademarks are the property of their respective owners and are used for identification or descriptive purposes only.
+                    </p>
+                    <p class="mt-2">
+                        Nothing on this website is financial, investment, legal, or tax advice, or an offer to sell securities. Digital assets carry risk, including possible total loss of value. Figures shown may be illustrative. Consult a qualified professional before making decisions.
+                    </p>
+                </div>
 
                 <div class="mt-6 flex space-x-4">
                     {socialLinks.map(social => (
